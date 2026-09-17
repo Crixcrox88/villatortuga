@@ -1,0 +1,1014 @@
+[
+  {
+    "id": 1,
+    "category": 0,
+    "src": "/photos/01-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Living room with cream sectional and balcony doors",
+      "es": "Sala con sofá crema y puertas al balcón"
+    }
+  },
+  {
+    "id": 2,
+    "category": 0,
+    "src": "/photos/02-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Open living area with sectional and kitchen beyond",
+      "es": "Sala abierta con sofá y cocina al fondo"
+    }
+  },
+  {
+    "id": 3,
+    "category": 0,
+    "src": "/photos/03-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Living room television and low wooden console",
+      "es": "Televisor y consola de madera en la sala"
+    }
+  },
+  {
+    "id": 4,
+    "category": 0,
+    "src": "/photos/04-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Seating facing the television and kitchen",
+      "es": "Asientos frente al televisor y la cocina"
+    }
+  },
+  {
+    "id": 5,
+    "category": 0,
+    "src": "/photos/05-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Round dining table beside the living room",
+      "es": "Mesa redonda junto a la sala"
+    }
+  },
+  {
+    "id": 6,
+    "category": 0,
+    "src": "/photos/06-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Sliding doors connecting the living room to the balcony",
+      "es": "Puertas correderas entre sala y balcón"
+    }
+  },
+  {
+    "id": 7,
+    "category": 0,
+    "src": "/photos/07-07.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Plant beside the living room window",
+      "es": "Planta junto a la ventana de la sala"
+    }
+  },
+  {
+    "id": 8,
+    "category": 0,
+    "src": "/photos/08-08.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Portable speaker on a wooden stand",
+      "es": "Altavoz portátil sobre soporte de madera"
+    }
+  },
+  {
+    "id": 9,
+    "category": 1,
+    "src": "/photos/09-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Kitchen island with four stools",
+      "es": "Isla de cocina con cuatro asientos"
+    }
+  },
+  {
+    "id": 10,
+    "category": 1,
+    "src": "/photos/10-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Wood-front kitchen island and dining area",
+      "es": "Isla con frente de madera y comedor"
+    }
+  },
+  {
+    "id": 11,
+    "category": 1,
+    "src": "/photos/11-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Refrigerator and built-in oven in the kitchen",
+      "es": "Refrigerador y horno empotrado en la cocina"
+    }
+  },
+  {
+    "id": 12,
+    "category": 1,
+    "src": "/photos/12-04.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Stainless refrigerator, microwave and oven",
+      "es": "Refrigerador, microondas y horno"
+    }
+  },
+  {
+    "id": 13,
+    "category": 1,
+    "src": "/photos/13-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Kitchen breakfast counter and dining table",
+      "es": "Barra de cocina y mesa de comedor"
+    }
+  },
+  {
+    "id": 14,
+    "category": 1,
+    "src": "/photos/14-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Kitchen counters opening toward the living area",
+      "es": "Encimeras abiertas hacia la sala"
+    }
+  },
+  {
+    "id": 15,
+    "category": 1,
+    "src": "/photos/15-07.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Kitchen sink and dishwasher",
+      "es": "Fregadero y lavaplatos"
+    }
+  },
+  {
+    "id": 16,
+    "category": 1,
+    "src": "/photos/16-08.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Cups and glasses in an open cupboard",
+      "es": "Tazas y vasos en un armario abierto"
+    }
+  },
+  {
+    "id": 17,
+    "category": 1,
+    "src": "/photos/17-09.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Drip coffee maker and espresso machine",
+      "es": "Cafeteras de goteo y espresso"
+    }
+  },
+  {
+    "id": 18,
+    "category": 1,
+    "src": "/photos/18-10.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Plates and bowls above the kitchen sink",
+      "es": "Platos y cuencos sobre el fregadero"
+    }
+  },
+  {
+    "id": 19,
+    "category": 1,
+    "src": "/photos/19-11.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Open kitchen and dining area",
+      "es": "Cocina y comedor abiertos"
+    }
+  },
+  {
+    "id": 20,
+    "category": 1,
+    "src": "/photos/20-12.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Round dining table with four chairs",
+      "es": "Mesa redonda con cuatro sillas"
+    }
+  },
+  {
+    "id": 21,
+    "category": 1,
+    "src": "/photos/21-13.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Cooktop on the island facing the living room",
+      "es": "Estufa en la isla frente a la sala"
+    }
+  },
+  {
+    "id": 22,
+    "category": 2,
+    "src": "/photos/22-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Primary suite closet with shelves and towels",
+      "es": "Clóset de la suite con estantes y toallas"
+    }
+  },
+  {
+    "id": 23,
+    "category": 2,
+    "src": "/photos/23-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Primary suite with king bed and television",
+      "es": "Suite principal con cama king y televisor"
+    }
+  },
+  {
+    "id": 24,
+    "category": 2,
+    "src": "/photos/24-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "King bed framed by windows in the primary suite",
+      "es": "Cama king entre ventanas de la suite"
+    }
+  },
+  {
+    "id": 25,
+    "category": 2,
+    "src": "/photos/25-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Primary suite bed and wooden closet",
+      "es": "Cama y clóset de madera de la suite"
+    }
+  },
+  {
+    "id": 26,
+    "category": 2,
+    "src": "/photos/26-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Primary suite seating and glass terrace doors",
+      "es": "Asientos y puertas de terraza de la suite"
+    }
+  },
+  {
+    "id": 27,
+    "category": 2,
+    "src": "/photos/27-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "King bed beside a lounge chair",
+      "es": "Cama king junto a una butaca"
+    }
+  },
+  {
+    "id": 28,
+    "category": 2,
+    "src": "/photos/28-07.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Primary suite bedside lamp and pillows",
+      "es": "Lámpara y almohadas de la suite"
+    }
+  },
+  {
+    "id": 29,
+    "category": 3,
+    "src": "/photos/29-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bedroom two headboard and patterned pillows",
+      "es": "Cabecera y almohadas del dormitorio dos"
+    }
+  },
+  {
+    "id": 30,
+    "category": 3,
+    "src": "/photos/30-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom two king bed and closet",
+      "es": "Cama king y clóset del dormitorio dos"
+    }
+  },
+  {
+    "id": 31,
+    "category": 3,
+    "src": "/photos/31-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom two with twin bedside lamps",
+      "es": "Dormitorio dos con dos lámparas"
+    }
+  },
+  {
+    "id": 32,
+    "category": 3,
+    "src": "/photos/32-04.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bedroom two closet with iron and hangers",
+      "es": "Clóset con plancha y perchas del dormitorio dos"
+    }
+  },
+  {
+    "id": 33,
+    "category": 3,
+    "src": "/photos/33-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom two king bed beside a window",
+      "es": "Cama king junto a la ventana del dormitorio dos"
+    }
+  },
+  {
+    "id": 34,
+    "category": 3,
+    "src": "/photos/34-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom two television opposite the bed",
+      "es": "Televisor frente a la cama del dormitorio dos"
+    }
+  },
+  {
+    "id": 35,
+    "category": 4,
+    "src": "/photos/35-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bedroom three upholstered headboard",
+      "es": "Cabecera tapizada del dormitorio tres"
+    }
+  },
+  {
+    "id": 36,
+    "category": 4,
+    "src": "/photos/36-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom three queen bed and bedside tables",
+      "es": "Cama queen y mesas de noche del dormitorio tres"
+    }
+  },
+  {
+    "id": 37,
+    "category": 4,
+    "src": "/photos/37-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom three bed beside two windows",
+      "es": "Cama junto a dos ventanas del dormitorio tres"
+    }
+  },
+  {
+    "id": 38,
+    "category": 4,
+    "src": "/photos/38-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bedroom three television opposite the queen bed",
+      "es": "Televisor frente a la cama queen del dormitorio tres"
+    }
+  },
+  {
+    "id": 39,
+    "category": 4,
+    "src": "/photos/39-05.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bedroom three bedside lamp and vase",
+      "es": "Lámpara y florero del dormitorio tres"
+    }
+  },
+  {
+    "id": 40,
+    "category": 4,
+    "src": "/photos/40-06.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bedroom three nightstand and framed artwork",
+      "es": "Mesa de noche y cuadro del dormitorio tres"
+    }
+  },
+  {
+    "id": 41,
+    "category": 5,
+    "src": "/photos/41-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Ground-floor kitchenette with microwave and small refrigerator",
+      "es": "Kitchenette con microondas y refrigerador pequeño"
+    }
+  },
+  {
+    "id": 42,
+    "category": 5,
+    "src": "/photos/42-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Ground-floor bedroom with two queen beds",
+      "es": "Dormitorio de planta baja con dos camas queen"
+    }
+  },
+  {
+    "id": 43,
+    "category": 5,
+    "src": "/photos/43-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Two queen beds with a shared nightstand",
+      "es": "Dos camas queen con mesa de noche compartida"
+    }
+  },
+  {
+    "id": 44,
+    "category": 5,
+    "src": "/photos/44-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Ground-floor beds facing a television",
+      "es": "Camas frente al televisor en la planta baja"
+    }
+  },
+  {
+    "id": 45,
+    "category": 5,
+    "src": "/photos/45-05.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Ground-floor bedside lamp and flowers",
+      "es": "Lámpara y flores de la planta baja"
+    }
+  },
+  {
+    "id": 46,
+    "category": 5,
+    "src": "/photos/46-06.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Ground-floor closet with iron and hangers",
+      "es": "Clóset con plancha y perchas en la planta baja"
+    }
+  },
+  {
+    "id": 47,
+    "category": 5,
+    "src": "/photos/47-07.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Kitchenette alongside the ground-floor beds",
+      "es": "Kitchenette junto a las camas de la planta baja"
+    }
+  },
+  {
+    "id": 48,
+    "category": 5,
+    "src": "/photos/48-08.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Ground-floor glass door opening to a private terrace",
+      "es": "Puerta de la planta baja hacia terraza privada"
+    }
+  },
+  {
+    "id": 49,
+    "category": 6,
+    "src": "/photos/49-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bathroom one shower head and toiletries",
+      "es": "Ducha y productos de baño del baño uno"
+    }
+  },
+  {
+    "id": 50,
+    "category": 6,
+    "src": "/photos/50-02.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bathroom one vanity and black-framed mirror",
+      "es": "Lavamanos y espejo negro del baño uno"
+    }
+  },
+  {
+    "id": 51,
+    "category": 6,
+    "src": "/photos/51-03.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bathroom one towels on a wall rack",
+      "es": "Toallas en el baño uno"
+    }
+  },
+  {
+    "id": 52,
+    "category": 6,
+    "src": "/photos/52-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom one with glass shower and vanity",
+      "es": "Baño uno con ducha de vidrio y lavamanos"
+    }
+  },
+  {
+    "id": 53,
+    "category": 7,
+    "src": "/photos/53-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom two with window and glass shower",
+      "es": "Baño dos con ventana y ducha de vidrio"
+    }
+  },
+  {
+    "id": 54,
+    "category": 7,
+    "src": "/photos/54-02.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Bathroom two sink and toiletries",
+      "es": "Lavamanos y productos del baño dos"
+    }
+  },
+  {
+    "id": 55,
+    "category": 7,
+    "src": "/photos/55-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom two shower and vanity viewed from above",
+      "es": "Ducha y lavamanos del baño dos desde arriba"
+    }
+  },
+  {
+    "id": 56,
+    "category": 7,
+    "src": "/photos/56-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom two glass shower and towel rack",
+      "es": "Ducha y toallero del baño dos"
+    }
+  },
+  {
+    "id": 57,
+    "category": 8,
+    "src": "/photos/57-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom three mosaic tile shower and vanity",
+      "es": "Ducha con mosaicos y lavamanos del baño tres"
+    }
+  },
+  {
+    "id": 58,
+    "category": 8,
+    "src": "/photos/58-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Bathroom three wide mirror and patterned tiles",
+      "es": "Espejo amplio y mosaicos del baño tres"
+    }
+  },
+  {
+    "id": 59,
+    "category": 9,
+    "src": "/photos/59-01.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Poolside bathroom with illuminated mirror",
+      "es": "Baño junto a la piscina con espejo iluminado"
+    }
+  },
+  {
+    "id": 60,
+    "category": 9,
+    "src": "/photos/60-02.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Poolside bathroom sink and toiletries",
+      "es": "Lavamanos y productos del baño de piscina"
+    }
+  },
+  {
+    "id": 61,
+    "category": 9,
+    "src": "/photos/61-03.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Poolside bathroom with toilet and towels",
+      "es": "Inodoro y toallas del baño de piscina"
+    }
+  },
+  {
+    "id": 62,
+    "category": 10,
+    "src": "/photos/62-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Upper balcony wrapping around the white villa",
+      "es": "Balcón superior alrededor de la villa blanca"
+    }
+  },
+  {
+    "id": 63,
+    "category": 10,
+    "src": "/photos/63-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Balcony lounge chairs facing the sea",
+      "es": "Sillones del balcón frente al mar"
+    }
+  },
+  {
+    "id": 64,
+    "category": 10,
+    "src": "/photos/64-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Ocean horizon from the balcony seating",
+      "es": "Horizonte desde los asientos del balcón"
+    }
+  },
+  {
+    "id": 65,
+    "category": 10,
+    "src": "/photos/65-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Upper terrace above the pool with sea views",
+      "es": "Terraza superior sobre la piscina con vista al mar"
+    }
+  },
+  {
+    "id": 66,
+    "category": 10,
+    "src": "/photos/66-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Covered balcony with woven lounge seating",
+      "es": "Balcón cubierto con asientos tejidos"
+    }
+  },
+  {
+    "id": 67,
+    "category": 10,
+    "src": "/photos/67-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Wooden balcony deck and ocean horizon",
+      "es": "Piso de madera del balcón y horizonte"
+    }
+  },
+  {
+    "id": 68,
+    "category": 11,
+    "src": "/photos/68-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Laundry area with washer and dryer",
+      "es": "Lavandería con lavadora y secadora"
+    }
+  },
+  {
+    "id": 69,
+    "category": 11,
+    "src": "/photos/69-02.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Dryer, beach chairs and cooler",
+      "es": "Secadora, sillas de playa y neverita"
+    }
+  },
+  {
+    "id": 70,
+    "category": 11,
+    "src": "/photos/70-03.webp",
+    "width": 2560,
+    "height": 3841,
+    "alt": {
+      "en": "Folded beach chairs in the laundry area",
+      "es": "Sillas de playa plegadas en la lavandería"
+    }
+  },
+  {
+    "id": 71,
+    "category": 11,
+    "src": "/photos/71-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Washer, dryer and cleaning supplies",
+      "es": "Lavadora, secadora y artículos de limpieza"
+    }
+  },
+  {
+    "id": 72,
+    "category": 12,
+    "src": "/photos/72-01.webp",
+    "width": 2560,
+    "height": 1920,
+    "alt": {
+      "en": "Aerial view of the villa amid green hills",
+      "es": "Vista aérea de la villa entre colinas verdes"
+    }
+  },
+  {
+    "id": 73,
+    "category": 12,
+    "src": "/photos/73-02.webp",
+    "width": 2560,
+    "height": 1920,
+    "alt": {
+      "en": "Aerial view of the villa with ocean behind",
+      "es": "Vista aérea de la villa con el mar al fondo"
+    }
+  },
+  {
+    "id": 74,
+    "category": 12,
+    "src": "/photos/74-03.webp",
+    "width": 2560,
+    "height": 1920,
+    "alt": {
+      "en": "Aerial view of the two-level villa and pool",
+      "es": "Vista aérea de la villa de dos niveles y piscina"
+    }
+  },
+  {
+    "id": 75,
+    "category": 12,
+    "src": "/photos/75-04.webp",
+    "width": 2560,
+    "height": 1920,
+    "alt": {
+      "en": "Pool and upper balcony viewed from above",
+      "es": "Piscina y balcón superior vistos desde arriba"
+    }
+  },
+  {
+    "id": 76,
+    "category": 12,
+    "src": "/photos/76-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Gravel driveway and entry gate",
+      "es": "Camino de grava y portón de entrada"
+    }
+  },
+  {
+    "id": 77,
+    "category": 12,
+    "src": "/photos/77-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Ocean and offshore islands beyond the green landscape",
+      "es": "Mar e islas más allá del paisaje verde"
+    }
+  },
+  {
+    "id": 78,
+    "category": 13,
+    "src": "/photos/78-01.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Private pool, loungers and ocean horizon",
+      "es": "Piscina privada, tumbonas y horizonte marino"
+    }
+  },
+  {
+    "id": 79,
+    "category": 13,
+    "src": "/photos/79-02.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Covered poolside seating facing the sea",
+      "es": "Asientos cubiertos junto a la piscina frente al mar"
+    }
+  },
+  {
+    "id": 80,
+    "category": 13,
+    "src": "/photos/80-03.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool alongside the two-level white villa",
+      "es": "Piscina junto a la villa blanca de dos niveles"
+    }
+  },
+  {
+    "id": 81,
+    "category": 13,
+    "src": "/photos/81-04.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool terrace with palm tree and loungers",
+      "es": "Terraza de piscina con palmera y tumbonas"
+    }
+  },
+  {
+    "id": 82,
+    "category": 13,
+    "src": "/photos/82-05.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool framed by green hills and sea",
+      "es": "Piscina entre colinas verdes y mar"
+    }
+  },
+  {
+    "id": 83,
+    "category": 13,
+    "src": "/photos/83-06.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Wide pool steps and coastal landscape",
+      "es": "Escalones amplios de piscina y paisaje costero"
+    }
+  },
+  {
+    "id": 84,
+    "category": 13,
+    "src": "/photos/84-07.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool terrace along the lower level",
+      "es": "Terraza de piscina junto a la planta baja"
+    }
+  },
+  {
+    "id": 85,
+    "category": 13,
+    "src": "/photos/85-08.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool with loungers on the opposite deck",
+      "es": "Piscina con tumbonas al otro lado"
+    }
+  },
+  {
+    "id": 86,
+    "category": 13,
+    "src": "/photos/86-09.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Pool steps facing white chairs and a palm",
+      "es": "Escalones de piscina frente a sillas blancas y palmera"
+    }
+  },
+  {
+    "id": 87,
+    "category": 13,
+    "src": "/photos/87-10.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Outdoor kitchen with sink and grill",
+      "es": "Cocina exterior con fregadero y grill"
+    }
+  },
+  {
+    "id": 88,
+    "category": 13,
+    "src": "/photos/88-11.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Covered outdoor kitchen beside the pool",
+      "es": "Cocina exterior cubierta junto a la piscina"
+    }
+  },
+  {
+    "id": 89,
+    "category": 13,
+    "src": "/photos/89-12.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Covered pool terrace and outdoor dining area",
+      "es": "Terraza cubierta de piscina y comedor exterior"
+    }
+  },
+  {
+    "id": 90,
+    "category": 13,
+    "src": "/photos/90-13.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "White outdoor dining table facing the pool",
+      "es": "Mesa exterior blanca frente a la piscina"
+    }
+  },
+  {
+    "id": 91,
+    "category": 13,
+    "src": "/photos/91-14.webp",
+    "width": 2560,
+    "height": 1706,
+    "alt": {
+      "en": "Striped hammock beside the outdoor dining table",
+      "es": "Hamaca de rayas junto al comedor exterior"
+    }
+  },
+  {
+    "id": 92,
+    "category": 14,
+    "src": "/photos/92-01.webp",
+    "width": 2560,
+    "height": 3413,
+    "alt": {
+      "en": "Optional wooden dock surrounded by water and mangroves",
+      "es": "Muelle opcional de madera entre agua y manglares"
+    }
+  }
+]

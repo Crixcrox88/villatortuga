@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="not-found"><p className="eyebrow">VILLA TORTUGA · 404</p><h1>Esta página se fue con la marea.</h1><a className="button" href="/es">Volver a la villa →</a></main>}
