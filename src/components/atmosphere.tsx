@@ -28,7 +28,6 @@ export function Atmosphere() {
     });
 
     const finish = (animation: Animation) => {
-      animation.commitStyles();
       animations.delete(animation);
       animation.cancel();
     };
@@ -46,20 +45,18 @@ export function Atmosphere() {
             isImage
               ? [
                   {
-                    clipPath: "inset(0 0 18% 0)",
-                    transform: "scale(1.035)",
+                    transform: "translateY(28px) scale(.985)",
                   },
                   {
-                    clipPath: "inset(0 0 0 0)",
-                    transform: "scale(1)",
+                    transform: "translateY(0) scale(1)",
                   },
                 ]
               : [
-                  { opacity: 0, transform: "translateY(46px)" },
-                  { opacity: 1, transform: "translateY(0)" },
+                  { transform: "translateY(46px)" },
+                  { transform: "translateY(0)" },
                 ],
             {
-              duration: isImage ? 1050 : 820,
+              duration: isImage ? 900 : 820,
               delay,
               easing: "cubic-bezier(.22,1,.36,1)",
               fill: "both",
@@ -69,7 +66,7 @@ export function Atmosphere() {
           animation.onfinish = () => finish(animation);
         }
       },
-      { threshold: 0, rootMargin: "0px 0px 22%" },
+      { threshold: 0.08, rootMargin: "0px 0px -2%" },
     );
     [...textTargets, ...staggerTargets, ...imageTargets].forEach((element) =>
       observer.observe(element),
