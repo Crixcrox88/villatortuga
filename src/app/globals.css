@@ -947,6 +947,47 @@ img {
   gap: 30px;
   margin-top: 40px;
 }
+.airbnb-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 450px);
+  align-items: center;
+  gap: 8%;
+  margin-top: 58px;
+  padding-top: 58px;
+  border-top: 1px solid #c9cec3;
+}
+.airbnb-proof-copy {
+  max-width: 500px;
+}
+.airbnb-proof-copy .eyebrow {
+  margin-bottom: 18px;
+}
+.airbnb-proof-copy h3 {
+  font-size: clamp(40px, 4vw, 58px);
+}
+.airbnb-proof-copy > p:not(.eyebrow) {
+  max-width: 440px;
+  margin-top: 22px;
+  font-size: 16px;
+}
+.airbnb-widget-shell {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.airbnb-embed-frame {
+  width: min(100%, 450px) !important;
+  max-width: 450px !important;
+  height: 300px !important;
+  margin: 0 !important;
+}
+.airbnb-embed-frame iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
 .stay {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
@@ -1321,6 +1362,13 @@ details[open] > .amenity-groups {
   }
   .reviews-footer {
     align-items: flex-start;
+  }
+  .airbnb-proof {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .airbnb-widget-shell {
+    justify-content: flex-start;
   }
   .stay {
     gap: 55px 6%;
@@ -1706,6 +1754,21 @@ details[open] > .amenity-groups {
   }
   .reviews-footer .text-link {
     margin-top: 15px;
+  }
+  .airbnb-proof {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 42px;
+    padding-top: 42px;
+  }
+  .airbnb-proof-copy h3 {
+    font-size: 43px;
+  }
+  .airbnb-proof-copy > p:not(.eyebrow) {
+    font-size: 15px;
+  }
+  .airbnb-widget-shell {
+    justify-content: center;
   }
   .stay {
     grid-template-columns: 1fr;

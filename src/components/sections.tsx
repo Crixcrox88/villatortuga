@@ -2,6 +2,7 @@ import { copy, property, type Locale } from "@/content/site";
 import { Booking, External, Eyebrow, Icon, Photo } from "./primitives";
 import { Gallery } from "./gallery";
 import { HeroPhoto } from "./hero-photo";
+import { AirbnbEmbed } from "./airbnb-embed";
 export function Hero({ locale }: { locale: Locale }) {
   const t = copy[locale];
   return (
@@ -277,6 +278,7 @@ export function Reviews({ locale }: { locale: Locale }) {
             {t.readReviews}
           </External>
         </div>
+        <AirbnbEmbed locale={locale} />
       </div>
     </section>
   );
