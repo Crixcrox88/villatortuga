@@ -21,7 +21,7 @@ const motionGroups = {
     ".amenity-details",
     ".final-cta > div:last-child",
   ],
-  card: [".room", ".amenity-highlights > div", ".review-grid article"],
+  card: [".room", ".amenity-highlights > div"],
   media: [
     ".pool-photo",
     ".pool-detail-photo",

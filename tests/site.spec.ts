@@ -15,10 +15,38 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const heroExplore = page.locator(".hero-explore");
+      const heroExploreStyles = await heroExplore.evaluate((element) => {
+        const icon = element.querySelector("svg")!;
+        const iconBox = icon.getBoundingClientRect();
+        return {
+          fontSize: Number.parseFloat(getComputedStyle(element).fontSize),
+          iconWidth: iconBox.width,
+          iconHeight: iconBox.height,
+        };
+      });
+      expect(heroExploreStyles.fontSize).toBeGreaterThanOrEqual(14);
+      expect(heroExploreStyles.iconWidth).toBeLessThanOrEqual(28);
+      expect(heroExploreStyles.iconHeight).toBeLessThanOrEqual(28);
+      const galleryIcon = page.locator(".gallery-tile .icon-view").first();
+      const galleryIconBox = await galleryIcon.evaluate((element) => {
+        const box = element.getBoundingClientRect();
+        return { width: box.width, height: box.height };
+      });
+      expect(galleryIconBox.width).toBeLessThanOrEqual(32);
+      expect(galleryIconBox.height).toBeLessThanOrEqual(32);
+      await expect(page.locator(".host")).not.toContainText("Jorge");
+      await expect(page.locator(".reviews-footer .small")).toHaveCount(0);
       const listingCard = page.locator(".airbnb-listing-card");
       await listingCard.scrollIntoViewIfNeeded();
       await expect(listingCard).toBeVisible();
       await expect(listingCard.locator("img")).toHaveJSProperty(
+        "complete",
+        true,
+      );
+      const hostProfile = page.locator(".host-profile");
+      await hostProfile.scrollIntoViewIfNeeded();
+      await expect(hostProfile.locator("img")).toHaveJSProperty(
         "complete",
         true,
       );
