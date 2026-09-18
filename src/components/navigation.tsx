@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { copy, type Locale } from "@/content/site";
-import { Booking } from "./primitives";
+import { Booking, Icon } from "./primitives";
 const ids = ["villa", "spaces", "gallery", "location", "stay"];
 export function Navigation({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
@@ -106,7 +106,7 @@ export function Navigation({ locale }: { locale: Locale }) {
             onClick={() => setOpen(!open)}
           >
             {open ? t.close : t.menu}
-            <span aria-hidden="true">{open ? "−" : "+"}</span>
+            <Icon name="plus" />
           </button>
         </div>
         {open && (
@@ -125,7 +125,7 @@ export function Navigation({ locale }: { locale: Locale }) {
           >
             {ids.map((id, i) => (
               <a key={id} href={"#" + id} onClick={() => setOpen(false)}>
-                {t.nav[i]} <span aria-hidden="true">↗</span>
+                {t.nav[i]} <Icon name="down" />
               </a>
             ))}
           </nav>

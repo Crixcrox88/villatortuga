@@ -17,3 +17,10 @@
 - Lighthouse mobile against the production build: performance **94**, accessibility **100**, best practices **100**, SEO **69**. LCP **3.1 s**, CLS **0**, total blocking time **10 ms**.
 
 SEO remains below the intended production target because previews deliberately prohibit indexing. Do not enable indexing until the owner confirmations and domain setup in the README are complete. Lighthouse is a local lab measurement; these results are not field Core Web Vitals or a complete WCAG certification.
+
+## Typography and controls follow-up
+
+- Desktop hero composition at 1100 pixels now holds to two intentional lines with a compact editorial line-height.
+- Primary navigation is 15 px, FAQ questions and answers are 16 px, and supporting property text was raised where it previously read below the body scale.
+- Text arrows were replaced with purpose-specific SVG icons: external links, gallery viewing, adding more photos, scroll direction, and return to top.
+- Final browser check confirmed a two-line desktop hero, 15 px navigation, 16 px FAQ text, and no remaining `↗` glyphs in page text.

@@ -1,5 +1,5 @@
 import { copy, property, type Locale } from "@/content/site";
-import { Booking, External, Eyebrow, Photo } from "./primitives";
+import { Booking, External, Eyebrow, Icon, Photo } from "./primitives";
 import { Gallery } from "./gallery";
 import { HeroPhoto } from "./hero-photo";
 export function Hero({ locale }: { locale: Locale }) {
@@ -22,7 +22,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </div>
         <a className="hero-explore" href="#villa">
           {t.explore}
-          <span aria-hidden="true">↓</span>
+          <Icon name="down" />
         </a>
         <span className="hero-number" aria-hidden="true">
           01 / CULEBRA
@@ -179,7 +179,7 @@ export function Amenities({ locale }: { locale: Locale }) {
         <details className="amenity-details">
           <summary>
             {t.amenitiesMore}
-            <span aria-hidden="true">+</span>
+            <Icon name="plus" />
           </summary>
           <div className="amenity-groups">
             {t.amenityGroups.map(([title, ...items]) => (
@@ -300,7 +300,7 @@ export function Stay({ locale }: { locale: Locale }) {
           <details key={question}>
             <summary>
               {question}
-              <span aria-hidden="true">+</span>
+              <Icon name="plus" />
             </summary>
             <p>{answer}</p>
           </details>
@@ -354,7 +354,9 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
         <div className="copyright">
           <span>© {new Date().getFullYear()} Villa Tortuga</span>
-          <a href="#top">{t.top} ↑</a>
+          <a href="#top">
+            {t.top} <Icon name="up" />
+          </a>
         </div>
       </footer>
     </>

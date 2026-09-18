@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import photos from '@/content/photos.json';
 import { categories, copy, type Locale } from '@/content/site';
+import { Icon } from './primitives';
 
 const curated = [78, 63, 1, 24, 9, 74, 42, 77, 31, 36, 52, 57, 68, 92, 80];
 const ordered = [
@@ -56,11 +57,11 @@ export function Gallery({ locale }: { locale: Locale }) {
         const categoryName = categories[photo.category][locale === 'en' ? 0 : 1];
         return <button className="gallery-tile" key={photo.id} aria-label={`${categoryName}: ${photo.alt[locale]}. ${t.view}`} onClick={(event) => { trigger.current = event.currentTarget; setFailed(false); setActive(index); }}>
           <Image src={photo.src} width={photo.width} height={photo.height} alt={photo.alt[locale]} sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw" />
-          <span className="tile-caption">{categoryName}<span aria-hidden="true">↗</span></span>
+          <span className="tile-caption">{categoryName}<Icon name="view" /></span>
         </button>;
       })}
     </div>
-    {limit < filtered.length && <button className="button gallery-more" onClick={() => setLimit(limit + 12)}>{t.more}<span aria-hidden="true">+</span></button>}
+    {limit < filtered.length && <button className="button gallery-more" onClick={() => setLimit(limit + 12)}><span className="button-label">{t.more}</span><Icon name="plus" /></button>}
     <dialog className="lightbox" ref={dialog} aria-label={t.galleryTitle} onCancel={(event) => { event.preventDefault(); close(); }} onClick={(event) => { if (event.target === event.currentTarget) close(); }} onKeyDown={(event) => { if (event.key === 'ArrowRight') { event.preventDefault(); move(1); } if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); } }}>
       {selected && <>
         <div className="lightbox-top"><span>{categories[selected.category][locale === 'en' ? 0 : 1]}</span><button onClick={close} aria-label={t.galleryClose}>{t.close} ×</button></div>
