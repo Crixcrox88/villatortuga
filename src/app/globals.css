@@ -1069,9 +1069,9 @@ details[open] > .amenity-groups {
   color: white;
 }
 .final-cta h2 {
-  font-size: clamp(52px, 6.3vw, 96px);
+  font-size: clamp(48px, 5.5vw, 82px);
   line-height: 0.92;
-  max-width: 15ch;
+  max-width: 1000px;
   margin-inline: auto;
 }
 .final-cta p:not(.eyebrow) {
@@ -1225,6 +1225,9 @@ details[open] > .amenity-groups {
   .menu-button .icon {
     width: 20px;
     height: 20px;
+  }
+  .menu-button[aria-expanded="true"] .icon {
+    transform: rotate(45deg);
   }
   .hero {
     min-height: 620px;
@@ -1416,7 +1419,8 @@ details[open] > .amenity-groups {
     margin: 25px 0 28px;
   }
   .hero .button {
-    font-size: 12px;
+    font-size: 14px;
+    min-height: 56px;
     padding: 15px 18px;
     gap: 20px;
   }
@@ -1740,7 +1744,8 @@ details[open] > .amenity-groups {
     font-size: 14px;
   }
   .final-cta .button {
-    font-size: 12px;
+    font-size: 14px;
+    min-height: 56px;
   }
   .footer {
     padding-bottom: 120px;
@@ -1768,8 +1773,8 @@ details[open] > .amenity-groups {
   }
   .mobile-book .button {
     width: 100%;
-    min-height: 48px;
-    font-size: 12px;
+    min-height: 56px;
+    font-size: 14px;
   }
   .not-found h1 {
     font-size: 48px;
