@@ -15,6 +15,28 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const heroExplore = page.locator(".hero-explore");
+      const heroExploreStyles = await heroExplore.evaluate((element) => {
+        const icon = element.querySelector("svg")!;
+        const iconBox = icon.getBoundingClientRect();
+        return {
+          fontSize: Number.parseFloat(getComputedStyle(element).fontSize),
+          iconWidth: iconBox.width,
+          iconHeight: iconBox.height,
+        };
+      });
+      expect(heroExploreStyles.fontSize).toBeGreaterThanOrEqual(14);
+      expect(heroExploreStyles.iconWidth).toBeLessThanOrEqual(28);
+      expect(heroExploreStyles.iconHeight).toBeLessThanOrEqual(28);
+      const galleryIcon = page.locator(".gallery-tile .icon-view").first();
+      const galleryIconBox = await galleryIcon.evaluate((element) => {
+        const box = element.getBoundingClientRect();
+        return { width: box.width, height: box.height };
+      });
+      expect(galleryIconBox.width).toBeLessThanOrEqual(32);
+      expect(galleryIconBox.height).toBeLessThanOrEqual(32);
+      await expect(page.locator(".host")).not.toContainText("Jorge");
+      await expect(page.locator(".reviews-footer .small")).toHaveCount(0);
       const listingCard = page.locator(".airbnb-listing-card");
       await listingCard.scrollIntoViewIfNeeded();
       await expect(listingCard).toBeVisible();
@@ -22,6 +44,28 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const hostProfile = page.locator(".host-profile");
+      await hostProfile.scrollIntoViewIfNeeded();
+      await expect(hostProfile.locator("img")).toHaveJSProperty(
+        "complete",
+        true,
+      );
+      const hostPhotoSize = await hostProfile
+        .locator("img")
+        .evaluate((image) => {
+          const box = image.getBoundingClientRect();
+          return { width: box.width, height: box.height };
+        });
+      expect(hostPhotoSize.width).toBeLessThanOrEqual(88.1);
+      expect(hostPhotoSize.height).toBeLessThanOrEqual(88.1);
+      await expect(page.locator(".amenity-icon .icon")).toHaveCount(4);
+      expect(
+        await page
+          .locator(".location-stamp > strong")
+          .evaluate((element) =>
+            Number.parseInt(getComputedStyle(element).fontWeight, 10),
+          ),
+      ).toBeGreaterThanOrEqual(700);
       await expect(page.locator(".airbnb-proof iframe")).toHaveCount(0);
       expect(
         await page.evaluate(
@@ -181,9 +225,7 @@ test("section motion follows scroll progress and keeps photos opaque", async ({
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/es");
 
-  expect(
-    await page.evaluate(() => CSS.supports("animation-timeline: view()")),
-  ).toBe(true);
+  await expect(page.locator("html")).toHaveClass(/lenis/);
   await expect(page.locator(".pool-copy")).toHaveClass(/motion-copy/);
   await expect(page.locator(".pool-photo")).toHaveClass(/motion-media/);
 

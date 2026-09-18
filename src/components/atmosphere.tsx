@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Lenis from "lenis";
 
 const motionGroups = {
   copy: [
@@ -21,7 +22,7 @@ const motionGroups = {
     ".amenity-details",
     ".final-cta > div:last-child",
   ],
-  card: [".room", ".amenity-highlights > div", ".review-grid article"],
+  card: [".room", ".amenity-highlights > div"],
   media: [
     ".pool-photo",
     ".pool-detail-photo",
@@ -35,7 +36,21 @@ const motionGroups = {
 export function Atmosphere() {
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (preference.matches) return;
+    const reducedMotion = preference.matches;
+    const lenis = new Lenis({
+      autoRaf: true,
+      anchors: { offset: -100, duration: 1.05 },
+      duration: 1.05,
+      smoothWheel: !reducedMotion,
+      syncTouch: false,
+      wheelMultiplier: 0.88,
+      stopInertiaOnNavigate: true,
+      respectReducedMotion: true,
+    });
+
+    if (reducedMotion) {
+      return () => lenis.destroy();
+    }
 
     const targets = Object.entries(motionGroups).flatMap(([group, selectors]) =>
       Array.from(
@@ -46,24 +61,22 @@ export function Atmosphere() {
     // Avoid a start-up jump for content already visible after load or a deep link.
     const animatedTargets = targets.filter(({ element }) => {
       const bounds = element.getBoundingClientRect();
-      const initiallyVisible = bounds.top < innerHeight * 0.94 && bounds.bottom > 0;
+      const initiallyVisible =
+        bounds.top < innerHeight * 0.94 && bounds.bottom > 0;
       if (!initiallyVisible) element.classList.add("motion-target");
       return !initiallyVisible;
     });
 
-    animatedTargets.forEach(({ element, className }) =>
-      element.classList.add(className),
-    );
+    let cardIndex = 0;
+    animatedTargets.forEach(({ element, className }) => {
+      element.classList.add(className);
+      element.style.setProperty(
+        "--motion-delay",
+        className === "motion-card" ? `${(cardIndex++ % 4) * 70}ms` : "0ms",
+      );
+    });
 
-    if (CSS.supports("animation-timeline: view()")) {
-      return () => {
-        animatedTargets.forEach(({ element, className }) =>
-          element.classList.remove("motion-target", className),
-        );
-      };
-    }
-
-    document.documentElement.classList.add("motion-fallback");
+    document.documentElement.classList.add("motion-enhanced");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -72,20 +85,20 @@ export function Atmosphere() {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -10%" },
+      { threshold: 0.16, rootMargin: "0px 0px -8%" },
     );
 
     animatedTargets.forEach(({ element }) => observer.observe(element));
 
     return () => {
       observer.disconnect();
-      document.documentElement.classList.remove("motion-fallback");
+      lenis.destroy();
+      document.documentElement.classList.remove("motion-enhanced");
       animatedTargets.forEach(({ element, className }) =>
-        element.classList.remove(
-          "motion-target",
-          "motion-visible",
-          className,
-        ),
+        element.classList.remove("motion-target", "motion-visible", className),
+      );
+      animatedTargets.forEach(({ element }) =>
+        element.style.removeProperty("--motion-delay"),
       );
     };
   }, []);

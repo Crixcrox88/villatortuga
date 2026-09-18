@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { copy, property, type Locale } from "@/content/site";
 import { Booking, External, Eyebrow, Icon, Photo } from "./primitives";
 import { Gallery } from "./gallery";
@@ -149,6 +150,7 @@ export function GallerySection({ locale }: { locale: Locale }) {
 }
 export function Amenities({ locale }: { locale: Locale }) {
   const t = copy[locale];
+  const amenityIcons = ["pool", "panorama", "kitchen", "wifi"] as const;
   return (
     <section className="amenities">
       <div className="section">
@@ -170,6 +172,9 @@ export function Amenities({ locale }: { locale: Locale }) {
               ]
           ).map((item, i) => (
             <div key={item}>
+              <span className="amenity-icon">
+                <Icon name={amenityIcons[i]} />
+              </span>
               <span className="amenity-number" aria-hidden="true">
                 0{i + 1}
               </span>
@@ -206,7 +211,8 @@ export function Location({ locale }: { locale: Locale }) {
       <div className="location-image">
         <Photo id={73} locale={locale} />
         <span className="location-stamp">
-          Culebra<span>PUERTO RICO</span>
+          <strong>Culebra</strong>
+          <span>PUERTO RICO</span>
         </span>
       </div>
       <div className="location-copy">
@@ -234,6 +240,7 @@ export function Location({ locale }: { locale: Locale }) {
 }
 export function Reviews({ locale }: { locale: Locale }) {
   const t = copy[locale];
+  const reviewLoop = [...t.reviews, ...t.reviews];
   return (
     <section className="reviews">
       <div className="section">
@@ -253,27 +260,37 @@ export function Reviews({ locale }: { locale: Locale }) {
             <p className="small">{t.reviewSource}</p>
           </div>
         </div>
-        <div className="review-grid">
-          {t.reviews.map(([name, context, text]) => (
-            <article key={name}>
-              <span className="review-mark" aria-hidden="true">
-                —
-              </span>
-              <p>{text}</p>
-              <div className="review-author">
-                <span className="initial" aria-hidden="true">
-                  {name[0]}
+        <div
+          className="review-marquee"
+          role="region"
+          aria-label={t.reviewsRegion}
+          tabIndex={0}
+        >
+          <div className="review-track">
+            {reviewLoop.map(([name, context, text], index) => (
+              <article
+                key={`${name}-${index}`}
+                aria-hidden={index >= t.reviews.length || undefined}
+              >
+                <span className="review-mark" aria-hidden="true">
+                  —
                 </span>
-                <div>
-                  <strong>{name}</strong>
-                  <span>{context}</span>
+                <p>{text}</p>
+                <div className="review-author">
+                  <span className="initial" aria-hidden="true">
+                    {name[0]}
+                  </span>
+                  <div>
+                    <strong>{name}</strong>
+                    <span>{context}</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
         <div className="reviews-footer">
-          <p className="small">{t.reviewSummary}</p>
+          <span className="sr-only">{t.reviewSummary}</span>
           <External locale={locale} href={property.reviews}>
             {t.readReviews}
           </External>
@@ -290,11 +307,41 @@ export function Stay({ locale }: { locale: Locale }) {
       <div className="host">
         <Eyebrow>{t.hostLabel}</Eyebrow>
         <h2>{t.hostTitle}</h2>
+        <div className="host-profile">
+          <Image
+            src={property.host.photo}
+            alt={
+              locale === "en"
+                ? "Roxana, host of Villa Tortuga"
+                : "Roxana, anfitriona de Villa Tortuga"
+            }
+            width={89}
+            height={89}
+            sizes="88px"
+          />
+          <div className="host-identity">
+            <strong>{property.host.name}</strong>
+            <span className="host-badge">
+              <span aria-hidden="true">✓</span>
+              {t.hostSuperhost}
+            </span>
+          </div>
+        </div>
+        <dl className="host-stats">
+          {[
+            property.host.reviewCount,
+            property.host.rating,
+            property.host.yearsHosting,
+          ].map((value, index) => (
+            <div key={t.hostStats[index]}>
+              <dt>{t.hostStats[index]}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="host-source">{t.hostSource}</p>
         <p>{t.hostText}</p>
         <External locale={locale}>{t.hostAction}</External>
-        <div className="host-signature">
-          Roxana <span>&</span> Jorge
-        </div>
       </div>
       <div className="faq">
         <h2>{t.faqTitle}</h2>

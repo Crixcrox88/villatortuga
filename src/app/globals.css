@@ -1,3 +1,5 @@
+@import "lenis/dist/lenis.css";
+
 :root {
   --paper: #f8f6f0;
   --sand: #eae7de;
@@ -14,6 +16,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+}
+html.lenis {
+  scroll-behavior: auto;
 }
 body {
   margin: 0;
@@ -354,27 +359,44 @@ img {
   position: absolute;
   bottom: 33px;
   left: 7%;
-  font-size: 12px;
+  min-height: 46px;
+  padding: 9px 10px 9px 17px;
+  border: 1px solid #ffffff8c;
+  border-radius: 999px;
+  background: rgba(12, 45, 38, 0.28);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 14px;
+  transition:
+    background 220ms var(--ease),
+    border-color 220ms var(--ease),
+    transform 220ms var(--ease);
 }
 .hero-explore .icon {
-  width: 19px;
-  height: 19px;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
   border: 1px solid #ffffff80;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
   transition:
-    background 0.3s,
-    transform 0.3s;
+    background 220ms var(--ease),
+    transform 220ms var(--ease);
 }
-.hero-explore:hover .icon {
-  background: #ffffff20;
-  transform: translateY(4px);
+.hero-explore:hover,
+.hero-explore:focus-visible {
+  background: rgba(12, 45, 38, 0.5);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.hero-explore:hover .icon,
+.hero-explore:focus-visible .icon {
+  background: #ffffff24;
+  transform: translateY(2px);
 }
 .hero-number {
   position: absolute;
@@ -642,8 +664,10 @@ img {
   align-items: center;
 }
 .tile-caption > .icon {
+  flex: 0 0 32px;
   width: 32px;
   height: 32px;
+  padding: 7px;
   border: 1px solid #ffffff75;
   border-radius: 50%;
   display: grid;
@@ -756,18 +780,36 @@ img {
   margin-bottom: 45px;
 }
 .amenity-highlights > div {
+  position: relative;
   border-top: 1px solid #62766b;
   padding-top: 20px;
 }
+.amenity-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #819489;
+  border-radius: 50%;
+  color: #eef2ea;
+}
+.amenity-icon .icon {
+  width: 23px;
+  height: 23px;
+}
 .amenity-number {
-  font: italic 36px var(--serif);
-  color: #c3d0bb;
+  position: absolute;
+  top: 29px;
+  right: 0;
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.14em;
+  color: #aebcaf;
 }
 .amenity-highlights h3 {
   font: 400 24px var(--serif);
   line-height: 1.25;
   letter-spacing: 0;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 .amenity-details summary {
   border-top: 1px solid #62766b;
@@ -823,13 +865,16 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font: italic 38px var(--serif);
   transform: rotate(-10deg);
+}
+.location-stamp > strong {
+  font: 700 33px/0.95 var(--serif);
+  letter-spacing: -0.035em;
 }
 .location-stamp > span {
   font: 9px var(--sans);
-  letter-spacing: 0.2em;
-  margin-top: 8px;
+  letter-spacing: 0.15em;
+  margin-top: 3px;
 }
 .location-copy > p:not(.eyebrow) {
   margin-top: 28px;
@@ -892,12 +937,41 @@ img {
 .rating p {
   font-size: 14px;
 }
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+.review-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 2px 0 10px;
+  outline-offset: 6px;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 24px,
+    #000 calc(100% - 24px),
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 24px,
+    #000 calc(100% - 24px),
+    transparent
+  );
 }
-.review-grid article {
+.review-track {
+  --review-gap: 32px;
+  display: flex;
+  width: max-content;
+  gap: var(--review-gap);
+  animation: review-marquee 34s linear infinite;
+  will-change: transform;
+}
+.review-marquee:hover .review-track,
+.review-marquee:focus-within .review-track {
+  animation-play-state: paused;
+}
+.review-track article {
+  width: clamp(280px, 27vw, 390px);
+  flex: 0 0 auto;
   border-top: 1px solid #c9cec3;
   padding-top: 10px;
   display: flex;
@@ -908,7 +982,7 @@ img {
   height: 50px;
   color: #54735b;
 }
-.review-grid article > p {
+.review-track article > p {
   font-family: var(--serif);
   font-size: 25px;
   line-height: 1.35;
@@ -942,7 +1016,7 @@ img {
 }
 .reviews-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 30px;
   margin-top: 40px;
@@ -978,7 +1052,9 @@ img {
   border: 1px solid #c9cec3;
   text-decoration: none;
   box-shadow: 0 18px 50px rgba(20, 52, 43, 0.08);
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 .airbnb-listing-card:hover {
   transform: translateY(-4px);
@@ -1000,7 +1076,7 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center 56%;
-  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .airbnb-listing-card:hover .airbnb-listing-image .photo {
   transform: scale(1.025);
@@ -1015,7 +1091,7 @@ img {
   border-radius: 999px;
   font-size: 12px;
   font-weight: 650;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
 }
 .airbnb-listing-body {
   display: grid;
@@ -1052,19 +1128,81 @@ img {
 .host h2 {
   font-size: clamp(43px, 4.3vw, 64px);
 }
-.host > p:not(.eyebrow) {
+.host-profile {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 34px;
+}
+.host-profile > img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 12px 34px rgba(21, 51, 43, 0.13);
+}
+.host-identity {
+  display: grid;
+  gap: 7px;
+}
+.host-identity > strong {
+  font: 500 38px/1 var(--serif);
+}
+.host-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.host-badge > span {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #e61e4d;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+.host-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 28px 0 0;
+  border-block: 1px solid var(--line);
+}
+.host-stats > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+  padding: 18px 14px;
+  border-left: 1px solid var(--line);
+}
+.host-stats > div:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.host-stats dt {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+}
+.host-stats dd {
+  margin: 0;
+  font: 500 30px/1 var(--serif);
+}
+.host .host-source {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.host > p:not(.eyebrow):not(.host-source) {
   margin-top: 28px;
   font-size: 16px;
 }
 .host .text-link {
   margin-top: 15px;
-}
-.host-signature {
-  font: italic 46px var(--serif);
-  margin-top: 35px;
-}
-.host-signature span {
-  font-size: 30px;
 }
 .faq h2 {
   font-size: 46px;
@@ -1293,10 +1431,10 @@ details[open] > .amenity-groups {
   .pool-photo {
     min-height: 630px;
   }
-  .review-grid {
-    gap: 25px;
+  .review-track {
+    --review-gap: 25px;
   }
-  .review-grid article > p {
+  .review-track article > p {
     font-size: 23px;
   }
 }
@@ -1410,11 +1548,9 @@ details[open] > .amenity-groups {
     width: 115px;
     height: 115px;
     right: -20px;
-    font-size: 32px;
   }
-  .review-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 38px;
+  .location-stamp > strong {
+    font-size: 27px;
   }
   .reviews-footer {
     align-items: flex-start;
@@ -1531,8 +1667,10 @@ details[open] > .amenity-groups {
   .hero-explore {
     bottom: 25px;
     left: 6%;
-    font-size: 11px;
-    gap: 18px;
+    min-height: 44px;
+    padding: 8px 9px 8px 15px;
+    font-size: 14px;
+    gap: 12px;
   }
   .hero-number {
     display: none;
@@ -1695,9 +1833,10 @@ details[open] > .amenity-groups {
     padding: 30px 12px 12px;
   }
   .tile-caption > .icon {
-    border: 0;
-    width: auto;
-    height: auto;
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+    padding: 6px;
   }
   .gallery-more {
     font-size: 13px;
@@ -1769,7 +1908,9 @@ details[open] > .amenity-groups {
     width: 115px;
     bottom: -18px;
     right: -12px;
-    font-size: 32px;
+  }
+  .location-stamp > strong {
+    font-size: 27px;
   }
   .extras {
     grid-template-columns: 1fr;
@@ -1794,18 +1935,20 @@ details[open] > .amenity-groups {
   .rating strong {
     font-size: 72px;
   }
-  .review-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .review-track {
+    --review-gap: 18px;
+    animation-duration: 28s;
   }
-  .review-grid article > p {
-    font-size: 27px;
+  .review-track article {
+    width: min(82vw, 340px);
+  }
+  .review-track article > p {
+    font-size: 24px;
   }
   .review-author {
     padding-top: 20px;
   }
   .reviews-footer {
-    display: block;
     margin-top: 30px;
   }
   .reviews-footer .text-link {
@@ -1899,75 +2042,45 @@ details[open] > .amenity-groups {
     font-size: 48px;
   }
 }
-/* Section motion follows each element's view progress. Photographs stay opaque. */
-@keyframes motion-copy-in {
-  from {
-    transform: translate3d(0, 32px, 0);
-  }
+
+@keyframes review-marquee {
   to {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(calc(-50% - (var(--review-gap) / 2)));
   }
 }
-
-@keyframes motion-card-in {
-  from {
-    transform: translate3d(0, 24px, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+/* Section entrances are triggered once at a predictable viewport threshold. */
+.motion-enhanced .motion-target {
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: transform, clip-path;
 }
 
-@keyframes motion-media-in {
-  from {
-    transform: translate3d(0, 18px, 0) scale(0.992);
-  }
-  to {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
+.motion-enhanced .motion-copy {
+  transition: transform 760ms var(--ease) var(--motion-delay, 0ms);
 }
 
-@supports (animation-timeline: view()) {
-  .motion-copy {
-    animation: motion-copy-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 8% entry 88%;
-  }
-
-  .motion-card {
-    animation: motion-card-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 5% entry 82%;
-  }
-
-  .motion-media {
-    animation: motion-media-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 0% entry 95%;
-    transform-origin: center;
-  }
+.motion-enhanced .motion-copy:not(.motion-visible) {
+  transform: translate3d(0, 46px, 0);
 }
 
-/* IntersectionObserver fallback for browsers without View Timelines. */
-.motion-fallback .motion-target {
-  transition: transform 700ms var(--ease);
+.motion-enhanced .motion-card {
+  transition: transform 720ms var(--ease) var(--motion-delay, 0ms);
 }
 
-.motion-fallback .motion-copy:not(.motion-visible) {
-  transform: translate3d(0, 32px, 0);
+.motion-enhanced .motion-card:not(.motion-visible) {
+  transform: translate3d(0, 38px, 0);
 }
 
-.motion-fallback .motion-card:not(.motion-visible) {
-  transform: translate3d(0, 24px, 0);
-}
-
-.motion-fallback .motion-media {
-  transition-duration: 820ms;
+.motion-enhanced .motion-media {
+  overflow: hidden;
   transform-origin: center;
+  transition:
+    transform 920ms var(--ease) var(--motion-delay, 0ms),
+    clip-path 920ms var(--ease) var(--motion-delay, 0ms);
 }
 
-.motion-fallback .motion-media:not(.motion-visible) {
-  transform: translate3d(0, 18px, 0) scale(0.992);
+.motion-enhanced .motion-media:not(.motion-visible) {
+  clip-path: inset(7% 0 0 0);
+  transform: translate3d(0, 30px, 0) scale(0.985);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1981,5 +2094,17 @@ details[open] > .amenity-groups {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+  .review-marquee {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .review-track article {
+    scroll-snap-align: start;
+  }
+  .review-track article[aria-hidden="true"] {
+    display: none;
   }
 }
