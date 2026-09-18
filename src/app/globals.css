@@ -1,3 +1,5 @@
+@import "lenis/dist/lenis.css";
+
 :root {
   --paper: #f8f6f0;
   --sand: #eae7de;
@@ -14,6 +16,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+}
+html.lenis {
+  scroll-behavior: auto;
 }
 body {
   margin: 0;
@@ -2043,75 +2048,39 @@ details[open] > .amenity-groups {
     transform: translateX(calc(-50% - (var(--review-gap) / 2)));
   }
 }
-/* Section motion follows each element's view progress. Photographs stay opaque. */
-@keyframes motion-copy-in {
-  from {
-    transform: translate3d(0, 32px, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+/* Section entrances are triggered once at a predictable viewport threshold. */
+.motion-enhanced .motion-target {
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: transform, clip-path;
 }
 
-@keyframes motion-card-in {
-  from {
-    transform: translate3d(0, 24px, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
+.motion-enhanced .motion-copy {
+  transition: transform 760ms var(--ease) var(--motion-delay, 0ms);
 }
 
-@keyframes motion-media-in {
-  from {
-    transform: translate3d(0, 18px, 0) scale(0.992);
-  }
-  to {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
+.motion-enhanced .motion-copy:not(.motion-visible) {
+  transform: translate3d(0, 46px, 0);
 }
 
-@supports (animation-timeline: view()) {
-  .motion-copy {
-    animation: motion-copy-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 8% entry 88%;
-  }
-
-  .motion-card {
-    animation: motion-card-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 5% entry 82%;
-  }
-
-  .motion-media {
-    animation: motion-media-in auto linear both;
-    animation-timeline: view(block);
-    animation-range: entry 0% entry 95%;
-    transform-origin: center;
-  }
+.motion-enhanced .motion-card {
+  transition: transform 720ms var(--ease) var(--motion-delay, 0ms);
 }
 
-/* IntersectionObserver fallback for browsers without View Timelines. */
-.motion-fallback .motion-target {
-  transition: transform 700ms var(--ease);
+.motion-enhanced .motion-card:not(.motion-visible) {
+  transform: translate3d(0, 38px, 0);
 }
 
-.motion-fallback .motion-copy:not(.motion-visible) {
-  transform: translate3d(0, 32px, 0);
-}
-
-.motion-fallback .motion-card:not(.motion-visible) {
-  transform: translate3d(0, 24px, 0);
-}
-
-.motion-fallback .motion-media {
-  transition-duration: 820ms;
+.motion-enhanced .motion-media {
+  overflow: hidden;
   transform-origin: center;
+  transition:
+    transform 920ms var(--ease) var(--motion-delay, 0ms),
+    clip-path 920ms var(--ease) var(--motion-delay, 0ms);
 }
 
-.motion-fallback .motion-media:not(.motion-visible) {
-  transform: translate3d(0, 18px, 0) scale(0.992);
+.motion-enhanced .motion-media:not(.motion-visible) {
+  clip-path: inset(7% 0 0 0);
+  transform: translate3d(0, 30px, 0) scale(0.985);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -225,9 +225,7 @@ test("section motion follows scroll progress and keeps photos opaque", async ({
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/es");
 
-  expect(
-    await page.evaluate(() => CSS.supports("animation-timeline: view()")),
-  ).toBe(true);
+  await expect(page.locator("html")).toHaveClass(/lenis/);
   await expect(page.locator(".pool-copy")).toHaveClass(/motion-copy/);
   await expect(page.locator(".pool-photo")).toHaveClass(/motion-media/);
 
