@@ -28,6 +28,7 @@ export function Atmosphere() {
     });
 
     const finish = (animation: Animation) => {
+      animation.commitStyles();
       animations.delete(animation);
       animation.cancel();
     };
@@ -46,12 +47,10 @@ export function Atmosphere() {
               ? [
                   {
                     clipPath: "inset(0 0 18% 0)",
-                    opacity: 0.5,
                     transform: "scale(1.035)",
                   },
                   {
                     clipPath: "inset(0 0 0 0)",
-                    opacity: 1,
                     transform: "scale(1)",
                   },
                 ]
@@ -70,7 +69,7 @@ export function Atmosphere() {
           animation.onfinish = () => finish(animation);
         }
       },
-      { threshold: 0.14, rootMargin: "0px 0px -8%" },
+      { threshold: 0, rootMargin: "0px 0px 22%" },
     );
     [...textTargets, ...staggerTargets, ...imageTargets].forEach((element) =>
       observer.observe(element),
