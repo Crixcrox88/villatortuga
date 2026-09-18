@@ -150,6 +150,7 @@ export function GallerySection({ locale }: { locale: Locale }) {
 }
 export function Amenities({ locale }: { locale: Locale }) {
   const t = copy[locale];
+  const amenityIcons = ["pool", "panorama", "kitchen", "wifi"] as const;
   return (
     <section className="amenities">
       <div className="section">
@@ -171,6 +172,9 @@ export function Amenities({ locale }: { locale: Locale }) {
               ]
           ).map((item, i) => (
             <div key={item}>
+              <span className="amenity-icon">
+                <Icon name={amenityIcons[i]} />
+              </span>
               <span className="amenity-number" aria-hidden="true">
                 0{i + 1}
               </span>
@@ -207,7 +211,8 @@ export function Location({ locale }: { locale: Locale }) {
       <div className="location-image">
         <Photo id={73} locale={locale} />
         <span className="location-stamp">
-          Culebra<span>PUERTO RICO</span>
+          <strong>Culebra</strong>
+          <span>PUERTO RICO</span>
         </span>
       </div>
       <div className="location-copy">
@@ -310,9 +315,9 @@ export function Stay({ locale }: { locale: Locale }) {
                 ? "Roxana, host of Villa Tortuga"
                 : "Roxana, anfitriona de Villa Tortuga"
             }
-            width={320}
-            height={320}
-            sizes="112px"
+            width={89}
+            height={89}
+            sizes="88px"
           />
           <div className="host-identity">
             <strong>{property.host.name}</strong>

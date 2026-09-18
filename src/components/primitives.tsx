@@ -4,7 +4,16 @@ import photos from "@/content/photos.json";
 export function Icon({
   name,
 }: {
-  name: "calendar" | "plus" | "down" | "up" | "view";
+  name:
+    | "calendar"
+    | "plus"
+    | "down"
+    | "up"
+    | "view"
+    | "pool"
+    | "panorama"
+    | "kitchen"
+    | "wifi";
 }) {
   const paths = {
     calendar: (
@@ -34,6 +43,33 @@ export function Icon({
     view: (
       <>
         <path d="M8 4H4v4M12 4h4v4M8 16H4v-4M12 16h4v-4" />
+      </>
+    ),
+    pool: (
+      <>
+        <path d="M3 7.5c1.2 0 1.2-1 2.4-1s1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1" />
+        <path d="M3 11.5c1.2 0 1.2-1 2.4-1s1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1" />
+        <path d="M3 15.5c1.2 0 1.2-1 2.4-1s1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1 1.2-1 2.4-1 1.2 1 2.4 1" />
+      </>
+    ),
+    panorama: (
+      <>
+        <circle cx="14.5" cy="5.5" r="1.5" />
+        <path d="m3 16 5-6 3 3 2-2 4 5H3Z" />
+      </>
+    ),
+    kitchen: (
+      <>
+        <path d="M5 3v5M3 3v3a2 2 0 0 0 4 0V3M5 8v9" />
+        <path d="M14 3c-1.7 0-3 1.7-3 3.8s1.3 3.7 3 3.7 3-1.6 3-3.7S15.7 3 14 3Zm0 7.5V17" />
+      </>
+    ),
+    wifi: (
+      <>
+        <path d="M3 7.5a10.4 10.4 0 0 1 14 0" />
+        <path d="M5.8 10.5a6.2 6.2 0 0 1 8.4 0" />
+        <path d="M8.4 13.3a2.4 2.4 0 0 1 3.2 0" />
+        <circle cx="10" cy="16" r=".7" fill="currentColor" stroke="none" />
       </>
     ),
   };

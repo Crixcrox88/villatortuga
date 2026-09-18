@@ -775,18 +775,36 @@ img {
   margin-bottom: 45px;
 }
 .amenity-highlights > div {
+  position: relative;
   border-top: 1px solid #62766b;
   padding-top: 20px;
 }
+.amenity-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #819489;
+  border-radius: 50%;
+  color: #eef2ea;
+}
+.amenity-icon .icon {
+  width: 23px;
+  height: 23px;
+}
 .amenity-number {
-  font: italic 36px var(--serif);
-  color: #c3d0bb;
+  position: absolute;
+  top: 29px;
+  right: 0;
+  font: 500 11px/1 var(--sans);
+  letter-spacing: 0.14em;
+  color: #aebcaf;
 }
 .amenity-highlights h3 {
   font: 400 24px var(--serif);
   line-height: 1.25;
   letter-spacing: 0;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 .amenity-details summary {
   border-top: 1px solid #62766b;
@@ -842,13 +860,16 @@ img {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font: italic 38px var(--serif);
   transform: rotate(-10deg);
+}
+.location-stamp > strong {
+  font: 700 33px/0.95 var(--serif);
+  letter-spacing: -0.035em;
 }
 .location-stamp > span {
   font: 9px var(--sans);
-  letter-spacing: 0.2em;
-  margin-top: 8px;
+  letter-spacing: 0.15em;
+  margin-top: 3px;
 }
 .location-copy > p:not(.eyebrow) {
   margin-top: 28px;
@@ -1109,8 +1130,8 @@ img {
   margin-top: 34px;
 }
 .host-profile > img {
-  width: 112px;
-  height: 112px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 12px 34px rgba(21, 51, 43, 0.13);
@@ -1522,7 +1543,9 @@ details[open] > .amenity-groups {
     width: 115px;
     height: 115px;
     right: -20px;
-    font-size: 32px;
+  }
+  .location-stamp > strong {
+    font-size: 27px;
   }
   .reviews-footer {
     align-items: flex-start;
@@ -1880,7 +1903,9 @@ details[open] > .amenity-groups {
     width: 115px;
     bottom: -18px;
     right: -12px;
-    font-size: 32px;
+  }
+  .location-stamp > strong {
+    font-size: 27px;
   }
   .extras {
     grid-template-columns: 1fr;

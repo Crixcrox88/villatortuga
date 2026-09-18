@@ -50,6 +50,22 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const hostPhotoSize = await hostProfile
+        .locator("img")
+        .evaluate((image) => {
+          const box = image.getBoundingClientRect();
+          return { width: box.width, height: box.height };
+        });
+      expect(hostPhotoSize.width).toBeLessThanOrEqual(88.1);
+      expect(hostPhotoSize.height).toBeLessThanOrEqual(88.1);
+      await expect(page.locator(".amenity-icon .icon")).toHaveCount(4);
+      expect(
+        await page
+          .locator(".location-stamp > strong")
+          .evaluate((element) =>
+            Number.parseInt(getComputedStyle(element).fontWeight, 10),
+          ),
+      ).toBeGreaterThanOrEqual(700);
       await expect(page.locator(".airbnb-proof iframe")).toHaveCount(0);
       expect(
         await page.evaluate(
