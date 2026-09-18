@@ -2051,7 +2051,7 @@ details[open] > .amenity-groups {
 /* Section entrances are triggered once at a predictable viewport threshold. */
 .motion-enhanced .motion-target {
   transition-delay: var(--motion-delay, 0ms);
-  will-change: transform, clip-path;
+  will-change: transform;
 }
 
 .motion-enhanced .motion-copy {
@@ -2071,15 +2071,11 @@ details[open] > .amenity-groups {
 }
 
 .motion-enhanced .motion-media {
-  overflow: hidden;
   transform-origin: center;
-  transition:
-    transform 920ms var(--ease) var(--motion-delay, 0ms),
-    clip-path 920ms var(--ease) var(--motion-delay, 0ms);
+  transition: transform 920ms var(--ease) var(--motion-delay, 0ms);
 }
 
 .motion-enhanced .motion-media:not(.motion-visible) {
-  clip-path: inset(7% 0 0 0);
   transform: translate3d(0, 30px, 0) scale(0.985);
 }
 
