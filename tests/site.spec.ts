@@ -166,6 +166,51 @@ test("refined navigation, locally hosted fonts and reduced motion", async ({
   await expect(page.locator("#mobile-menu")).toHaveCount(0);
 });
 
+test("section motion follows scroll progress and keeps photos opaque", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/es");
+
+  expect(
+    await page.evaluate(() => CSS.supports("animation-timeline: view()")),
+  ).toBe(true);
+  await expect(page.locator(".pool-copy")).toHaveClass(/motion-copy/);
+  await expect(page.locator(".pool-photo")).toHaveClass(/motion-media/);
+
+  const sample = async () =>
+    page.evaluate(() => {
+      const copy = getComputedStyle(document.querySelector(".pool-copy")!);
+      const media = getComputedStyle(document.querySelector(".pool-photo")!);
+      return {
+        copyOpacity: Number(copy.opacity),
+        copyY: new DOMMatrixReadOnly(copy.transform).m42,
+        mediaOpacity: Number(media.opacity),
+        mediaY: new DOMMatrixReadOnly(media.transform).m42,
+      };
+    });
+
+  await page.evaluate(() => {
+    document.documentElement.style.scrollBehavior = "auto";
+    const target = document.querySelector(".pool-copy")!;
+    const top = target.getBoundingClientRect().top + scrollY;
+    scrollTo(0, top - innerHeight + 40);
+  });
+  await page.waitForTimeout(100);
+  const entry = await sample();
+
+  await page.evaluate(() => scrollBy(0, 560));
+  await page.waitForTimeout(100);
+  const settled = await sample();
+
+  expect(entry.copyOpacity).toBe(1);
+  expect(settled.copyOpacity).toBe(1);
+  expect(settled.copyY).toBeLessThan(entry.copyY);
+  expect(settled.mediaY).toBeLessThan(entry.mediaY);
+  expect(entry.mediaOpacity).toBe(1);
+  expect(settled.mediaOpacity).toBe(1);
+});
+
 test("editorial photos load while scrolling; content works without JavaScript", async ({
   browser,
 }) => {

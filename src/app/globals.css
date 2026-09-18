@@ -1780,6 +1780,77 @@ details[open] > .amenity-groups {
     font-size: 48px;
   }
 }
+/* Section motion follows each element's view progress. Photographs stay opaque. */
+@keyframes motion-copy-in {
+  from {
+    transform: translate3d(0, 32px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes motion-card-in {
+  from {
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes motion-media-in {
+  from {
+    transform: translate3d(0, 18px, 0) scale(0.992);
+  }
+  to {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .motion-copy {
+    animation: motion-copy-in auto linear both;
+    animation-timeline: view(block);
+    animation-range: entry 8% entry 88%;
+  }
+
+  .motion-card {
+    animation: motion-card-in auto linear both;
+    animation-timeline: view(block);
+    animation-range: entry 5% entry 82%;
+  }
+
+  .motion-media {
+    animation: motion-media-in auto linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% entry 95%;
+    transform-origin: center;
+  }
+}
+
+/* IntersectionObserver fallback for browsers without View Timelines. */
+.motion-fallback .motion-target {
+  transition: transform 700ms var(--ease);
+}
+
+.motion-fallback .motion-copy:not(.motion-visible) {
+  transform: translate3d(0, 32px, 0);
+}
+
+.motion-fallback .motion-card:not(.motion-visible) {
+  transform: translate3d(0, 24px, 0);
+}
+
+.motion-fallback .motion-media {
+  transition-duration: 820ms;
+  transform-origin: center;
+}
+
+.motion-fallback .motion-media:not(.motion-visible) {
+  transform: translate3d(0, 18px, 0) scale(0.992);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1789,5 +1860,7 @@ details[open] > .amenity-groups {
   *::after {
     transition: none !important;
     animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

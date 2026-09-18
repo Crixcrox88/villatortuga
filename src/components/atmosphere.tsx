@@ -2,85 +2,91 @@
 
 import { useEffect } from "react";
 
-/** Progressive enhancement: content remains visible without JavaScript or motion. */
+const motionGroups = {
+  copy: [
+    ".intro > div",
+    ".pool-copy",
+    ".section-heading",
+    ".kitchen-copy",
+    ".location-copy",
+    ".extras",
+    ".host",
+    ".faq",
+    ".important",
+    ".rating",
+    ".reviews-footer",
+    ".amenities .eyebrow",
+    ".amenities h2",
+    ".amenity-details",
+    ".final-cta > div:last-child",
+  ],
+  card: [".room", ".amenity-highlights > div", ".review-grid article"],
+  media: [
+    ".pool-photo",
+    ".pool-detail-photo",
+    ".kitchen-photo",
+    ".location-image",
+  ],
+} as const;
+
+/** Adds progressive scroll motion without making content depend on JavaScript. */
 export function Atmosphere() {
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const animations = new Set<Animation>();
-    const textTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        ".intro > div, .pool-copy, .section-heading, .kitchen-copy, .location-copy, .extras, .host, .faq, .important, .rating, .reviews-footer, .amenities .eyebrow, .amenities h2, .amenity-details, .final-cta > div:last-child",
-      ),
-    );
-    const staggerTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        ".room, .amenity-highlights > div, .review-grid article",
-      ),
-    );
-    const imageTargets = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        ".pool-photo, .pool-detail-photo, .kitchen-photo, .gallery-grid, .location-image",
-      ),
+    if (preference.matches) return;
+
+    const targets = Object.entries(motionGroups).flatMap(([group, selectors]) =>
+      Array.from(
+        document.querySelectorAll<HTMLElement>(selectors.join(",")),
+      ).map((element) => ({ element, className: `motion-${group}` })),
     );
 
-    staggerTargets.forEach((element, index) => {
-      element.dataset.motionDelay = String((index % 4) * 85);
+    // Avoid a start-up jump for content already visible after load or a deep link.
+    const animatedTargets = targets.filter(({ element }) => {
+      const bounds = element.getBoundingClientRect();
+      const initiallyVisible = bounds.top < innerHeight * 0.94 && bounds.bottom > 0;
+      if (!initiallyVisible) element.classList.add("motion-target");
+      return !initiallyVisible;
     });
 
-    const finish = (animation: Animation) => {
-      animations.delete(animation);
-      animation.cancel();
-    };
+    animatedTargets.forEach(({ element, className }) =>
+      element.classList.add(className),
+    );
 
+    if (CSS.supports("animation-timeline: view()")) {
+      return () => {
+        animatedTargets.forEach(({ element, className }) =>
+          element.classList.remove("motion-target", className),
+        );
+      };
+    }
+
+    document.documentElement.classList.add("motion-fallback");
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("motion-visible");
           observer.unobserve(entry.target);
-          if (preference.matches) continue;
-          const target = entry.target as HTMLElement;
-          const isImage = imageTargets.includes(target);
-          const delay = Number(target.dataset.motionDelay ?? 0);
-          const animation = target.animate(
-            isImage
-              ? [
-                  {
-                    transform: "translateY(28px) scale(.985)",
-                  },
-                  {
-                    transform: "translateY(0) scale(1)",
-                  },
-                ]
-              : [
-                  { transform: "translateY(46px)" },
-                  { transform: "translateY(0)" },
-                ],
-            {
-              duration: isImage ? 900 : 820,
-              delay,
-              easing: "cubic-bezier(.22,1,.36,1)",
-              fill: "both",
-            },
-          );
-          animations.add(animation);
-          animation.onfinish = () => finish(animation);
-        }
+        });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -2%" },
+      { threshold: 0.12, rootMargin: "0px 0px -10%" },
     );
-    [...textTargets, ...staggerTargets, ...imageTargets].forEach((element) =>
-      observer.observe(element),
-    );
-    const cancel = () => {
-      if (preference.matches)
-        animations.forEach((animation) => animation.cancel());
-    };
-    preference.addEventListener("change", cancel);
+
+    animatedTargets.forEach(({ element }) => observer.observe(element));
+
     return () => {
       observer.disconnect();
-      animations.forEach((animation) => animation.cancel());
-      preference.removeEventListener("change", cancel);
+      document.documentElement.classList.remove("motion-fallback");
+      animatedTargets.forEach(({ element, className }) =>
+        element.classList.remove(
+          "motion-target",
+          "motion-visible",
+          className,
+        ),
+      );
     };
   }, []);
+
   return null;
 }
