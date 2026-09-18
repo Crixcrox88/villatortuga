@@ -4,14 +4,13 @@ import photos from "@/content/photos.json";
 export function Icon({
   name,
 }: {
-  name: "external" | "plus" | "down" | "up" | "view";
+  name: "calendar" | "plus" | "down" | "up" | "view";
 }) {
   const paths = {
-    external: (
+    calendar: (
       <>
-        <path d="M8 16 16 8" />
-        <path d="M10 8h6v6" />
-        <path d="M14 12v4H4V6h4" />
+        <rect x="4" y="5" width="12" height="11" rx="1.5" />
+        <path d="M7 3v4M13 3v4M4 9h12M7.5 12h1M11.5 12h1" />
       </>
     ),
     plus: (
@@ -102,7 +101,7 @@ export function Booking({
       aria-label={`${t.book} (${t.external})`}
     >
       <span className="button-label">{compact ? t.shortBook : t.book}</span>
-      <Icon name="external" />
+      <Icon name="calendar" />
     </a>
   );
 }
@@ -123,7 +122,6 @@ export function External({
       rel="noopener noreferrer"
     >
       {children}
-      <Icon name="external" />
       <span className="sr-only"> ({copy[locale].external})</span>
     </a>
   );

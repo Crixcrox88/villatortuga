@@ -162,8 +162,8 @@ img {
   background: #355749;
   box-shadow: 0 8px 24px #233e3512;
 }
-.button:hover .icon-external {
-  transform: translate(3px, -3px);
+.button:hover .icon-calendar {
+  transform: translateY(-1px);
 }
 .button:hover .icon-plus {
   transform: rotate(90deg);
@@ -198,9 +198,6 @@ img {
 }
 .text-link:hover::after {
   transform: scaleX(1);
-}
-.text-link:hover .icon-external {
-  transform: translate(3px, -3px);
 }
 .header {
   height: 100px;
