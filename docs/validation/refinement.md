@@ -4,7 +4,7 @@
 
 - Self-hosted Cormorant Garamond headings and variable DM Sans body text, with larger reading sizes and clearer spacing.
 - Staggered bedroom photography, an inset pool photograph, a featured gallery tile, and quieter review styling that does not imply verbatim quotations.
-- Active-section navigation, responsive menu focus restoration, hover feedback, and subtle entrance animations. Reduced-motion preferences disable motion; core content and native FAQ remain usable without JavaScript.
+- Active-section navigation, responsive menu focus restoration, hover feedback, and editorial section transitions. Text enters vertically, rooms and reviews use a short stagger, and photographs reveal through a soft mask. Reduced-motion preferences disable motion; core content and native FAQ remain usable without JavaScript.
 - A portrait crop derived from source photograph 78 preserves the mobile composition while avoiding the desktop image download.
 - Existing property facts, Airbnb booking flow, bilingual routes, and launch restrictions remain in place.
 
