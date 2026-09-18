@@ -15,6 +15,14 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const listingCard = page.locator(".airbnb-listing-card");
+      await listingCard.scrollIntoViewIfNeeded();
+      await expect(listingCard).toBeVisible();
+      await expect(listingCard.locator("img")).toHaveJSProperty(
+        "complete",
+        true,
+      );
+      await expect(page.locator(".airbnb-proof iframe")).toHaveCount(0);
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth,
@@ -78,7 +86,8 @@ for (const locale of ["en", "es"]) {
       expect(await link.getAttribute("href")).toMatch(
         /^https:\/\/www.airbnb.com\/rooms\/1516054436387600999/,
       );
-      await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+      const rel = (await link.getAttribute("rel"))?.split(/\s+/) ?? [];
+      expect(rel).toEqual(expect.arrayContaining(["noopener", "noreferrer"]));
     }
   });
   test(`${locale} mobile menu, language and swipe`, async ({ page }) => {

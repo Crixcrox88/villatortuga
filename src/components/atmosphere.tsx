@@ -15,6 +15,7 @@ const motionGroups = {
     ".important",
     ".rating",
     ".reviews-footer",
+    ".airbnb-proof-copy",
     ".amenities .eyebrow",
     ".amenities h2",
     ".amenity-details",
@@ -26,6 +27,7 @@ const motionGroups = {
     ".pool-detail-photo",
     ".kitchen-photo",
     ".location-image",
+    ".airbnb-listing-card",
   ],
 } as const;
 

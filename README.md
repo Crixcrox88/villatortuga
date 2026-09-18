@@ -28,6 +28,7 @@ npm test
 - Run `node scripts/prepare-mobile-hero.mjs` to regenerate the portrait crop from the original pool photograph after changing that source.
 - Cormorant Garamond and DM Sans are self-hosted through `next/font/local`; font definitions live in `src/lib/fonts.ts`.
 - The displayed review metrics are a documented Airbnb snapshot from September 17, 2026. Update the copy and date together after every approved manual review; do not scrape or imply live ratings.
+- The listing preview is implemented in `src/components/airbnb-embed.tsx` with a local property photograph, the documented capacity details, and a direct Airbnb link. It intentionally avoids Airbnb's third-party embed script so the section never renders as a blank frame when tracking protection or browser policies block the widget. Update `property.airbnb` if the listing changes.
 
 ## Deployment
 
