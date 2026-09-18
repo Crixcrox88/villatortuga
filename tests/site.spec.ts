@@ -15,6 +15,14 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const listingCard = page.locator(".airbnb-listing-card");
+      await listingCard.scrollIntoViewIfNeeded();
+      await expect(listingCard).toBeVisible();
+      await expect(listingCard.locator("img")).toHaveJSProperty(
+        "complete",
+        true,
+      );
+      await expect(page.locator(".airbnb-proof iframe")).toHaveCount(0);
       expect(
         await page.evaluate(
           () => document.documentElement.scrollWidth <= innerWidth,

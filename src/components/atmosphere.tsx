@@ -27,7 +27,7 @@ const motionGroups = {
     ".pool-detail-photo",
     ".kitchen-photo",
     ".location-image",
-    ".airbnb-widget-shell",
+    ".airbnb-listing-card",
   ],
 } as const;
 
