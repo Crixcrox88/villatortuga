@@ -25,6 +25,8 @@ npm test
 - Gallery metadata and reviewed bilingual alt text live in `src/content/photos.json`.
 - The source image archive remains in `assets/property`; optimized local WebP files are in `public/photos`.
 - Run `node scripts/prepare-images.mjs` after replacing source photos. It refreshes optimized assets and `public/social.jpg`.
+- Run `node scripts/prepare-mobile-hero.mjs` to regenerate the portrait crop from the original pool photograph after changing that source.
+- Cormorant Garamond and DM Sans are self-hosted through `next/font/local`; font definitions live in `src/lib/fonts.ts`.
 - The displayed review metrics are a documented Airbnb snapshot from September 17, 2026. Update the copy and date together after every approved manual review; do not scrape or imply live ratings.
 
 ## Deployment
@@ -47,3 +49,5 @@ This is a standard Next.js App Router application and can be deployed to Vercel 
 `npm test` verifies both locales at 360, 390, 768, 1024, and 1440 px; the lightbox keyboard and touch flow; FAQ; external links; 404s; metadata; crawl controls; and automated WCAG checks. Lighthouse reports are written to `docs/validation/` when run locally.
 
 The local and preview environment intentionally returns `noindex, nofollow`, making its Lighthouse SEO score lower than an approved indexed production release.
+
+The September 17 editorial refinement and its production validation are documented in [docs/validation/refinement.md](docs/validation/refinement.md).
