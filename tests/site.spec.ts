@@ -219,7 +219,7 @@ test("refined navigation, locally hosted fonts and reduced motion", async ({
   await expect(page.locator("#mobile-menu")).toHaveCount(0);
 });
 
-test("section motion follows scroll progress and keeps photos opaque", async ({
+test("section motion follows scroll progress and keeps photos opaque and unclipped", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -236,6 +236,7 @@ test("section motion follows scroll progress and keeps photos opaque", async ({
       return {
         copyOpacity: Number(copy.opacity),
         copyY: new DOMMatrixReadOnly(copy.transform).m42,
+        mediaClip: media.clipPath,
         mediaOpacity: Number(media.opacity),
         mediaY: new DOMMatrixReadOnly(media.transform).m42,
       };
@@ -260,6 +261,31 @@ test("section motion follows scroll progress and keeps photos opaque", async ({
   expect(settled.mediaY).toBeLessThan(entry.mediaY);
   expect(entry.mediaOpacity).toBe(1);
   expect(settled.mediaOpacity).toBe(1);
+  expect(entry.mediaClip).toBe("none");
+  expect(settled.mediaClip).toBe("none");
+
+  await page.locator(".location-image").scrollIntoViewIfNeeded();
+  await page.waitForTimeout(950);
+  const stamp = await page.evaluate(() => {
+    const frame = document.querySelector(".location-image")!;
+    const badge = document.querySelector(".location-stamp")!;
+    const frameRect = frame.getBoundingClientRect();
+    const badgeRect = badge.getBoundingClientRect();
+    return {
+      overflow: getComputedStyle(frame).overflow,
+      clipPath: getComputedStyle(frame).clipPath,
+      extendsPastFrame: badgeRect.right > frameRect.right,
+      insideViewport:
+        badgeRect.left >= 0 &&
+        badgeRect.right <= innerWidth &&
+        badgeRect.top >= 0 &&
+        badgeRect.bottom <= innerHeight,
+    };
+  });
+  expect(stamp.overflow).toBe("visible");
+  expect(stamp.clipPath).toBe("none");
+  expect(stamp.extendsPastFrame).toBe(true);
+  expect(stamp.insideViewport).toBe(true);
 });
 
 test("editorial photos load while scrolling; content works without JavaScript", async ({
