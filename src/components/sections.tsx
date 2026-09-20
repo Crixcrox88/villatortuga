@@ -302,6 +302,14 @@ export function Reviews({ locale }: { locale: Locale }) {
 }
 export function Stay({ locale }: { locale: Locale }) {
   const t = copy[locale];
+  const importantIcons = [
+    "water",
+    "power",
+    "pool",
+    "stairs",
+    "camera",
+    "rules",
+  ] as const;
   return (
     <section id="stay" className="section stay">
       <div className="host">
@@ -361,8 +369,11 @@ export function Stay({ locale }: { locale: Locale }) {
           <h3>{t.importantTitle}</h3>
         </div>
         <ul>
-          {t.important.map((item) => (
-            <li key={item}>{item}</li>
+          {t.important.map((item, index) => (
+            <li key={item}>
+              <Icon name={importantIcons[index]} />
+              <span>{item}</span>
+            </li>
           ))}
         </ul>
       </aside>

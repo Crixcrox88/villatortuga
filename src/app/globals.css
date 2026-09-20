@@ -292,6 +292,9 @@ img {
   align-items: center;
   text-underline-offset: 5px;
 }
+.language > .icon {
+  display: none;
+}
 .language:hover {
   text-decoration: underline;
 }
@@ -1265,14 +1268,27 @@ details[open] > .amenity-groups {
 .important ul {
   margin: 0;
   padding-left: 18px;
-  columns: 2;
-  column-gap: 35px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 35px;
   font-size: 15px;
   color: var(--muted);
 }
 .important li {
-  break-inside: avoid;
-  padding: 0 0 15px 5px;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  padding: 0 0 18px;
+  line-height: 1.55;
+}
+.important li > .icon {
+  width: 19px;
+  height: 19px;
+  margin-top: 2px;
+  color: var(--ink);
 }
 .final-cta {
   position: relative;
@@ -1461,9 +1477,6 @@ details[open] > .amenity-groups {
     width: 20px;
     height: 20px;
   }
-  .menu-button[aria-expanded="true"] .icon {
-    transform: rotate(45deg);
-  }
   .hero {
     min-height: 620px;
     height: 740px;
@@ -1614,14 +1627,36 @@ details[open] > .amenity-groups {
     margin-top: 8px;
   }
   .header-actions {
-    gap: 16px;
+    gap: 8px;
   }
   .language {
-    font-size: 12px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+  }
+  .language-label,
+  .menu-label {
+    display: none;
+  }
+  .language > .icon {
+    display: block;
+    width: 19px;
+    height: 19px;
   }
   .menu-button {
-    font-size: 12px;
-    gap: 8px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+  }
+  .menu-button .icon {
+    width: 19px;
+    height: 19px;
   }
   .hero {
     height: calc(100svh - 150px);
@@ -1993,7 +2028,7 @@ details[open] > .amenity-groups {
     font-size: 38px;
   }
   .important ul {
-    columns: 1;
+    grid-template-columns: 1fr;
     font-size: 13px;
   }
   .final-cta {
