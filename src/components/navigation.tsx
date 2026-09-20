@@ -92,8 +92,10 @@ export function Navigation({ locale }: { locale: Locale }) {
             hrefLang={locale === "en" ? "es" : "en"}
             lang={locale === "en" ? "es" : "en"}
             onClick={languageClick}
+            aria-label={t.language}
           >
-            {t.language}
+            <span className="language-label">{t.language}</span>
+            <Icon name="globe" />
           </a>
           <div className="header-book">
             <Booking locale={locale} compact />
@@ -103,10 +105,11 @@ export function Navigation({ locale }: { locale: Locale }) {
             className="menu-button"
             aria-expanded={open}
             aria-controls="mobile-menu"
+            aria-label={open ? t.close : t.menu}
             onClick={() => setOpen(!open)}
           >
-            {open ? t.close : t.menu}
-            <Icon name="plus" />
+            <span className="menu-label">{open ? t.close : t.menu}</span>
+            <Icon name={open ? "close" : "menu"} />
           </button>
         </div>
         {open && (

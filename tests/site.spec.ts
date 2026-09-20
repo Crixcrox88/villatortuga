@@ -59,6 +59,7 @@ for (const locale of ["en", "es"]) {
       expect(hostPhotoSize.width).toBeLessThanOrEqual(88.1);
       expect(hostPhotoSize.height).toBeLessThanOrEqual(88.1);
       await expect(page.locator(".amenity-icon .icon")).toHaveCount(4);
+      await expect(page.locator(".important li > .icon")).toHaveCount(6);
       expect(
         await page
           .locator(".location-stamp > strong")
@@ -137,7 +138,12 @@ for (const locale of ["en", "es"]) {
   test(`${locale} mobile menu, language and swipe`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(path);
+    await expect(page.locator(".language-label")).toBeHidden();
+    await expect(page.locator(".language .icon-globe")).toBeVisible();
+    await expect(page.locator(".menu-label")).toBeHidden();
+    await expect(page.locator(".menu-button .icon-menu")).toBeVisible();
     await page.locator(".menu-button").click();
+    await expect(page.locator(".menu-button .icon-close")).toBeVisible();
     await page.locator('#mobile-menu a[href="#gallery"]').click();
     await expect(page.locator("#mobile-menu")).toHaveCount(0);
     await page.locator(".gallery-tile").first().click();

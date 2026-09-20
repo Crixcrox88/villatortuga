@@ -7,13 +7,21 @@ export function Icon({
   name:
     | "calendar"
     | "plus"
+    | "menu"
+    | "close"
+    | "globe"
     | "down"
     | "up"
     | "view"
     | "pool"
     | "panorama"
     | "kitchen"
-    | "wifi";
+    | "wifi"
+    | "water"
+    | "power"
+    | "stairs"
+    | "camera"
+    | "rules";
 }) {
   const paths = {
     calendar: (
@@ -26,6 +34,22 @@ export function Icon({
       <>
         <path d="M10 4v12" />
         <path d="M4 10h12" />
+      </>
+    ),
+    menu: (
+      <>
+        <path d="M3 5h14M3 10h14M3 15h14" />
+      </>
+    ),
+    close: (
+      <>
+        <path d="m5 5 10 10M15 5 5 15" />
+      </>
+    ),
+    globe: (
+      <>
+        <circle cx="10" cy="10" r="7" />
+        <path d="M3 10h14M10 3c2.1 1.9 3.2 4.2 3.2 7S12.1 15.1 10 17M10 3C7.9 4.9 6.8 7.2 6.8 10S7.9 15.1 10 17" />
       </>
     ),
     down: (
@@ -70,6 +94,34 @@ export function Icon({
         <path d="M5.8 10.5a6.2 6.2 0 0 1 8.4 0" />
         <path d="M8.4 13.3a2.4 2.4 0 0 1 3.2 0" />
         <circle cx="10" cy="16" r=".7" fill="currentColor" stroke="none" />
+      </>
+    ),
+    water: (
+      <>
+        <path d="M10 3s5 4.9 5 8.2a5 5 0 0 1-10 0C5 7.9 10 3 10 3Z" />
+        <path d="M7.5 12.4c.5 1.1 1.4 1.7 2.5 1.7" />
+      </>
+    ),
+    power: (
+      <>
+        <path d="m11 2-5.5 9H10l-1 7 5.5-9H10L11 2Z" />
+      </>
+    ),
+    stairs: (
+      <>
+        <path d="M3 16h14M3 16v-4h4V8h4V4h4" />
+      </>
+    ),
+    camera: (
+      <>
+        <path d="M4 7h3l1.2-2h3.6L13 7h3v9H4V7Z" />
+        <circle cx="10" cy="11.5" r="2.5" />
+      </>
+    ),
+    rules: (
+      <>
+        <rect x="5" y="3" width="10" height="14" rx="1" />
+        <path d="M8 7h4M8 10h4M8 13h2" />
       </>
     ),
   };
