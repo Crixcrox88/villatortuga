@@ -31,6 +31,48 @@ for (const locale of ["en", "es"]) {
         "complete",
         true,
       );
+      const palette = await page.evaluate(() => {
+        const root = getComputedStyle(document.documentElement);
+        const color = (selector: string, property: string) =>
+          getComputedStyle(document.querySelector(selector)!).getPropertyValue(
+            property,
+          );
+        return {
+          paper: root.getPropertyValue("--paper").trim(),
+          ink: root.getPropertyValue("--ink").trim(),
+          muted: root.getPropertyValue("--muted").trim(),
+          sand: root.getPropertyValue("--sand").trim(),
+          line: root.getPropertyValue("--line").trim(),
+          focus: root.getPropertyValue("--focus").trim(),
+          header: color(".header", "background-color"),
+          bookingButton: color(".header .button", "background-color"),
+          reviews: color(".reviews", "background-color"),
+          amenities: color(".amenities", "background-color"),
+        };
+      });
+      expect(palette).toEqual({
+        paper: "#f8f5f0",
+        ink: "#2a3a4c",
+        muted: "#536174",
+        sand: "#e9ebed",
+        line: "#c7d0d8",
+        focus: "#507aa0",
+        header: "rgb(248, 245, 240)",
+        bookingButton: "rgb(42, 58, 76)",
+        reviews: "rgb(233, 235, 237)",
+        amenities: "rgb(42, 58, 76)",
+      });
+      const primaryButton = page.locator(".gallery-more");
+      await primaryButton.hover();
+      await expect(primaryButton).toHaveCSS(
+        "background-color",
+        "rgb(30, 44, 60)",
+      );
+      await primaryButton.focus();
+      await expect(primaryButton).toHaveCSS(
+        "outline-color",
+        "rgb(80, 122, 160)",
+      );
       const heroExplore = page.locator(".hero-explore");
       const heroExploreStyles = await heroExplore.evaluate((element) => {
         const icon = element.querySelector("svg")!;
