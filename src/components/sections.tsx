@@ -245,6 +245,7 @@ export function Location({ locale }: { locale: Locale }) {
 export function Reviews({ locale }: { locale: Locale }) {
   const t = copy[locale];
   const reviewLoop = [...t.reviews, ...t.reviews];
+  const [ratingScore, ...ratingDetail] = t.reviewRating.split(" ");
   return (
     <section className="reviews">
       <div className="section">
@@ -254,7 +255,11 @@ export function Reviews({ locale }: { locale: Locale }) {
             <h2>{t.reviewsTitle}</h2>
           </div>
           <div className="rating">
-            <p>{t.reviewRating}</p>
+            <span className="rating-label">{t.ratingLabel}</span>
+            <p className="rating-summary">
+              <strong>{ratingScore}</strong>{" "}
+              <span>{ratingDetail.join(" ")}</span>
+            </p>
           </div>
         </div>
         <div

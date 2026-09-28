@@ -196,7 +196,9 @@ for (const locale of ["en", "es"]) {
     await expect(page.locator(".distances")).toContainText(expected.flamencoTime);
     await expect(page.locator(".extras")).toContainText(expected.concierge);
     await expect(page.locator(".reviews")).toContainText(expected.reviews);
-    await expect(page.locator(".rating")).toHaveText(expected.rating);
+    await expect(page.locator(".rating-summary")).toHaveText(expected.rating);
+    await expect(page.locator(".rating-label")).toBeVisible();
+    await expect(page.locator(".rating-summary strong")).toHaveText("5.0/5");
     await expect(page.locator(".reviews")).not.toContainText("September 17, 2026");
     await expect(page.locator(".reviews")).not.toContainText(
       locale === "en" ? "At the time of capture" : "al momento de la captura",
