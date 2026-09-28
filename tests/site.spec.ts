@@ -59,7 +59,21 @@ for (const locale of ["en", "es"]) {
       expect(hostPhotoSize.width).toBeLessThanOrEqual(88.1);
       expect(hostPhotoSize.height).toBeLessThanOrEqual(88.1);
       await expect(page.locator(".amenity-icon .icon")).toHaveCount(4);
-      await expect(page.locator(".important li > .icon")).toHaveCount(6);
+      await expect(page.locator(".important-notice > .icon")).toHaveCount(1);
+      await expect(page.locator(".important")).toHaveCount(1);
+      await expect(page.locator(".important")).not.toContainText(
+        locale === "en" ? "Before You Arrive" : "Antes de llegar",
+      );
+      await expect(page.locator(".important")).toContainText(
+        locale === "en"
+          ? "The villa uses collected rainwater. Please conserve water during your stay."
+          : "La villa utiliza agua de lluvia recolectada. Por favor, conserven agua durante su estadía.",
+      );
+      await expect(page.locator(".important")).not.toContainText(
+        locale === "en"
+          ? "There is no backup generator"
+          : "No hay generador de respaldo",
+      );
       expect(
         await page
           .locator(".location-stamp > strong")
@@ -134,6 +148,54 @@ for (const locale of ["en", "es"]) {
       const rel = (await link.getAttribute("rel"))?.split(/\s+/) ?? [];
       expect(rel).toEqual(expect.arrayContaining(["noopener", "noreferrer"]));
     }
+  });
+  test(`${locale} updated editorial copy and review details`, async ({ page }) => {
+    await page.goto(path);
+    const expected =
+      locale === "en"
+        ? {
+            hero: "Ocean views. Unhurried days. Your own private escape.",
+            intro: "An island escape. Where time slows down.",
+            pool: "Every moment comes with a view.",
+            location: "A little island. So much to explore.",
+            flamenco: "Flamenco Beach",
+            flamencoTime: "Around 15 minutes away",
+            concierge: "Your stay, thoughtfully curated.",
+            reviews: "In Their Own Words.",
+            rating: "5.0/5 based on 28 Airbnb reviews.",
+            poolAnswer:
+              "Yes. The pool is heated and set to a comfortable temperature. Guests cannot adjust it directly, but feel free to contact your host if you prefer a different temperature.",
+            removedFaq: "What safety equipment is provided?",
+          }
+        : {
+            hero: "Vistas al mar. Días sin prisa. Su propia escapada privada.",
+            intro: "Una escapada a la isla. Donde el tiempo transcurre más despacio.",
+            pool: "Cada momento viene con una vista.",
+            location: "Una pequeña isla. Tanto por explorar.",
+            flamenco: "Playa Flamenco",
+            flamencoTime: "A unos 15 minutos",
+            concierge: "Su estadía, cuidadosamente planeada.",
+            reviews: "En sus propias palabras.",
+            rating: "5.0/5 basado en 28 reseñas de Airbnb.",
+            poolAnswer:
+              "Sí. La piscina está climatizada y configurada a una temperatura cómoda. Los huéspedes no pueden ajustarla directamente, pero pueden comunicarse con su anfitriona si prefieren una temperatura diferente.",
+            removedFaq: "¿Qué equipo de seguridad hay?",
+          };
+    await expect(page.locator(".hero")).toContainText(expected.hero);
+    await expect(page.locator(".intro")).toContainText(expected.intro);
+    await expect(page.locator(".pool-feature")).toContainText(expected.pool);
+    await expect(page.locator(".location")).toContainText(expected.location);
+    await expect(page.locator(".distances")).toContainText(expected.flamenco);
+    await expect(page.locator(".distances")).toContainText(expected.flamencoTime);
+    await expect(page.locator(".extras")).toContainText(expected.concierge);
+    await expect(page.locator(".reviews")).toContainText(expected.reviews);
+    await expect(page.locator(".rating")).toHaveText(expected.rating);
+    await expect(page.locator(".reviews")).not.toContainText("September 17, 2026");
+    await expect(page.locator(".reviews")).not.toContainText(
+      locale === "en" ? "At the time of capture" : "al momento de la captura",
+    );
+    await expect(page.locator(".faq")).toContainText(expected.poolAnswer);
+    await expect(page.locator(".faq")).not.toContainText(expected.removedFaq);
   });
   test(`${locale} mobile menu, language and swipe`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });

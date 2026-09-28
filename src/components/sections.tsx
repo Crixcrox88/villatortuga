@@ -228,6 +228,10 @@ export function Location({ locale }: { locale: Locale }) {
             <dt>{t.town}</dt>
             <dd>{t.townTime}</dd>
           </div>
+          <div>
+            <dt>{t.flamenco}</dt>
+            <dd>{t.flamencoTime}</dd>
+          </div>
         </dl>
         <p className="small">{t.locationNote}</p>
       </div>
@@ -250,14 +254,7 @@ export function Reviews({ locale }: { locale: Locale }) {
             <h2>{t.reviewsTitle}</h2>
           </div>
           <div className="rating">
-            <strong>
-              {property.rating}
-              <span>/ 5</span>
-            </strong>
-            <p>
-              {property.reviewCount} {t.reviewCount}
-            </p>
-            <p className="small">{t.reviewSource}</p>
+            <p>{t.reviewRating}</p>
           </div>
         </div>
         <div
@@ -302,14 +299,6 @@ export function Reviews({ locale }: { locale: Locale }) {
 }
 export function Stay({ locale }: { locale: Locale }) {
   const t = copy[locale];
-  const importantIcons = [
-    "water",
-    "power",
-    "pool",
-    "stairs",
-    "camera",
-    "rules",
-  ] as const;
   return (
     <section id="stay" className="section stay">
       <div className="host">
@@ -364,18 +353,10 @@ export function Stay({ locale }: { locale: Locale }) {
         ))}
       </div>
       <aside className="important">
-        <div>
-          <Eyebrow>{t.importantLabel}</Eyebrow>
-          <h3>{t.importantTitle}</h3>
-        </div>
-        <ul>
-          {t.important.map((item, index) => (
-            <li key={item}>
-              <Icon name={importantIcons[index]} />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        <p className="important-notice">
+          <Icon name="water" />
+          <span>{t.important}</span>
+        </p>
       </aside>
     </section>
   );

@@ -1255,36 +1255,19 @@ details[open] > .amenity-groups {
   grid-column: 1/-1;
   border-top: 1px solid var(--line);
   padding-top: 45px;
-  display: grid;
-  grid-template-columns: 0.65fr 1.35fr;
-  gap: 7%;
 }
-.important h3 {
-  font-size: 38px;
-}
-.important .eyebrow {
-  margin-bottom: 18px;
-}
-.important ul {
-  margin: 0;
-  padding-left: 18px;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 35px;
-  font-size: 15px;
-  color: var(--muted);
-}
-.important li {
+.important-notice {
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   gap: 11px;
   align-items: start;
-  padding: 0 0 18px;
+  margin: 0;
+  max-width: 680px;
+  font-size: 15px;
+  color: var(--muted);
   line-height: 1.55;
 }
-.important li > .icon {
+.important-notice > .icon {
   width: 19px;
   height: 19px;
   margin-top: 2px;
@@ -1583,10 +1566,6 @@ details[open] > .amenity-groups {
   }
   .faq h2 {
     font-size: 39px;
-  }
-  .important {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
   .amenity-highlights {
     gap: 20px;
@@ -2022,13 +2001,8 @@ details[open] > .amenity-groups {
   }
   .important {
     padding-top: 30px;
-    gap: 24px;
   }
-  .important h3 {
-    font-size: 38px;
-  }
-  .important ul {
-    grid-template-columns: 1fr;
+  .important-notice {
     font-size: 13px;
   }
   .final-cta {
