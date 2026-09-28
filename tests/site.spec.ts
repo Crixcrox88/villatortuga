@@ -10,6 +10,13 @@ for (const locale of ["en", "es"]) {
       await page.goto(path);
       await expect(page.locator("html")).toHaveAttribute("lang", locale);
       await expect(page.locator("h1")).toHaveCount(1);
+      const brandLogo = page.locator(".header .brand-logo");
+      await expect(brandLogo).toBeVisible();
+      await expect(brandLogo).toHaveAttribute(
+        "src",
+        "/brand/villa-tortuga.svg",
+      );
+      await expect(page.locator(".header .brand-symbol")).toHaveCount(0);
       await expect(page.locator(".hero img")).toBeVisible();
       await expect(page.locator(".hero img")).toHaveJSProperty(
         "complete",

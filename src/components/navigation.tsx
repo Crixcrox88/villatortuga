@@ -52,22 +52,8 @@ export function Navigation({ locale }: { locale: Locale }) {
       </a>
       <header className="header" data-scrolled={scrolled}>
         <a className="wordmark" href={locale === "en" ? "/" : "/es"}>
-          <span className="brand-symbol" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <path
-                d="M10 21a10 10 0 0 1 20 0M5 26c5-5 10 5 15 0s10 5 15 0M5 32c5-5 10 5 15 0s10 5 15 0"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-              <path
-                d="M20 3v4M7 9l3 3M33 9l-3 3"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-            </svg>
-          </span>{" "}
-          Villa Tortuga
-          <span className="brand-place">CULEBRA · PUERTO RICO</span>
+          <img className="brand-logo" src="/brand/villa-tortuga.svg" alt="" />
+          <span className="sr-only">Villa Tortuga</span>
         </a>
         <nav
           className="desktop-nav"
