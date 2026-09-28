@@ -1139,6 +1139,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 80px 10%;
+  padding-bottom: 72px;
 }
 .host h2 {
   font-size: clamp(43px, 4.3vw, 64px);
@@ -1265,24 +1266,29 @@ details[open] > .amenity-groups {
 }
 .important {
   grid-column: 1/-1;
-  border-top: 1px solid var(--line);
-  padding-top: 45px;
+  align-self: start;
+  background: var(--sand);
+  border-inline-start: 3px solid var(--ink);
+  padding: 30px clamp(24px, 3vw, 44px);
 }
 .important-notice {
   display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 11px;
-  align-items: start;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
   margin: 0;
-  max-width: 680px;
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.55;
+  max-width: 850px;
+  color: var(--ink);
+  font: 400 clamp(20px, 1.65vw, 25px) / 1.32 var(--serif);
 }
 .important-notice > .icon {
-  width: 19px;
-  height: 19px;
-  margin-top: 2px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
   color: var(--ink);
 }
 .final-cta {
@@ -1999,6 +2005,7 @@ details[open] > .amenity-groups {
   .stay {
     grid-template-columns: 1fr;
     gap: 50px;
+    padding-bottom: 45px;
   }
   .host h2 {
     font-size: 48px;
@@ -2013,10 +2020,18 @@ details[open] > .amenity-groups {
     font-size: 16px;
   }
   .important {
-    padding-top: 30px;
+    padding: 22px 20px;
   }
   .important-notice {
-    font-size: 13px;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 14px;
+    font-size: 18px;
+    line-height: 1.38;
+  }
+  .important-notice > .icon {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
   }
   .final-cta {
     min-height: 490px;

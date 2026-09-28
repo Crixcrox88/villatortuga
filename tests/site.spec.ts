@@ -129,6 +129,33 @@ for (const locale of ["en", "es"]) {
       await expect(page.locator(".amenity-icon .icon")).toHaveCount(4);
       await expect(page.locator(".important-notice > .icon")).toHaveCount(1);
       await expect(page.locator(".important")).toHaveCount(1);
+      const importantNotice = await page
+        .locator(".important-notice")
+        .evaluate((element) => {
+          const notice = getComputedStyle(element);
+          const icon = element.querySelector("svg")!;
+          const iconBox = icon.getBoundingClientRect();
+          return {
+            color: notice.color,
+            fontSize: Number.parseFloat(notice.fontSize),
+            iconWidth: iconBox.width,
+            iconHeight: iconBox.height,
+            background: getComputedStyle(
+              element.closest(".important")!,
+            ).backgroundColor,
+          };
+        });
+      expect(importantNotice.color).toBe("rgb(42, 58, 76)");
+      expect(importantNotice.fontSize).toBeGreaterThanOrEqual(
+        width <= 600 ? 18 : 20,
+      );
+      expect(importantNotice.iconWidth).toBeGreaterThanOrEqual(
+        width <= 600 ? 36 : 44,
+      );
+      expect(importantNotice.iconHeight).toBeGreaterThanOrEqual(
+        width <= 600 ? 36 : 44,
+      );
+      expect(importantNotice.background).toBe("rgb(233, 235, 237)");
       await expect(page.locator(".important")).not.toContainText(
         locale === "en" ? "Before You Arrive" : "Antes de llegar",
       );
