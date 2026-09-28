@@ -53,6 +53,16 @@ for (const locale of ["en", "es"]) {
       expect(galleryIconBox.height).toBeLessThanOrEqual(32);
       await expect(page.locator(".host")).not.toContainText("Jorge");
       await expect(page.locator(".reviews-footer .small")).toHaveCount(0);
+      const ratingLayout = await page.locator(".rating-summary").evaluate(
+        (summary) => {
+          const score = summary.querySelector("strong")!.getBoundingClientRect();
+          const detail = summary.querySelector("span")!.getBoundingClientRect();
+          return { scoreBottom: score.bottom, detailTop: detail.top };
+        },
+      );
+      expect(ratingLayout.detailTop).toBeGreaterThanOrEqual(
+        ratingLayout.scoreBottom + 8,
+      );
       const listingCard = page.locator(".airbnb-listing-card");
       await listingCard.scrollIntoViewIfNeeded();
       await expect(listingCard).toBeVisible();
