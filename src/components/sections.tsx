@@ -382,8 +382,9 @@ export function Footer({ locale }: { locale: Locale }) {
       </section>
       <footer className="section footer">
         <div>
-          <a className="wordmark" href="#top">
-            Villa Tortuga
+          <a className="footer-logo" href="#top">
+            <img className="brand-logo" src="/brand/villa-tortuga.svg" alt="" />
+            <span className="sr-only">Villa Tortuga</span>
           </a>
           <p>{t.footer}</p>
         </div>

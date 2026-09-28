@@ -241,7 +241,7 @@ img {
 }
 .brand-logo {
   display: block;
-  width: 184px;
+  width: 138px;
   height: auto;
 }
 .desktop-nav {
@@ -1321,8 +1321,12 @@ details[open] > .amenity-groups {
   flex-wrap: wrap;
   gap: 40px;
 }
-.footer .wordmark {
-  font-size: 44px;
+.footer-logo {
+  display: inline-block;
+  line-height: 0;
+}
+.footer-logo .brand-logo {
+  width: 205px;
 }
 .footer p {
   font-size: 14px;
@@ -1593,7 +1597,10 @@ details[open] > .amenity-groups {
     gap: 10px;
   }
   .brand-logo {
-    width: 145px;
+    width: 112px;
+  }
+  .footer-logo .brand-logo {
+    width: 165px;
   }
   .header-actions {
     gap: 8px;

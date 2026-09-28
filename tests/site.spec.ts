@@ -16,7 +16,16 @@ for (const locale of ["en", "es"]) {
         "src",
         "/brand/villa-tortuga.svg",
       );
+      expect(
+        await brandLogo.evaluate((image) => image.getBoundingClientRect().width),
+      ).toBeLessThanOrEqual(width <= 600 ? 112 : 138);
       await expect(page.locator(".header .brand-symbol")).toHaveCount(0);
+      const footerLogo = page.locator(".footer .brand-logo");
+      await expect(footerLogo).toBeVisible();
+      await expect(footerLogo).toHaveAttribute(
+        "src",
+        "/brand/villa-tortuga.svg",
+      );
       await expect(page.locator(".hero img")).toBeVisible();
       await expect(page.locator(".hero img")).toHaveJSProperty(
         "complete",
