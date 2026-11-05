@@ -1,3 +1,4 @@
+import { Instagram } from "./instagram";
 import { Contact } from "./contact";
 import { Navigation } from "./navigation";
 import {
@@ -30,6 +31,7 @@ export function Home({ locale }: { locale: Locale }) {
         <Location locale={locale} />
         <Reviews locale={locale} />
         <Stay locale={locale} />
+        <Instagram locale={locale} />
         <Contact locale={locale} />
         <Footer locale={locale} />
       </main>
