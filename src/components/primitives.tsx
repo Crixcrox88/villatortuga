@@ -5,6 +5,13 @@ export function Icon({
   name,
 }: {
   name:
+    | "air"
+    | "tv"
+    | "bed"
+    | "boat"
+    | "waves"
+    | "sun"
+    | "home"
     | "calendar"
     | "plus"
     | "menu"
@@ -24,6 +31,46 @@ export function Icon({
     | "rules";
 }) {
   const paths = {
+    air: (
+      <>
+        <rect x="2.5" y="4" width="15" height="7" rx="1" />
+        <path d="M4.5 9h11M6 13c0 1-1 1-1 2m5-2c0 1-1 1-1 2m5-2c0 1-1 1-1 2" />
+      </>
+    ),
+    tv: (
+      <>
+        <rect x="3" y="4" width="14" height="10" rx="1" />
+        <path d="M7 17h6m-3-3v3" />
+      </>
+    ),
+    bed: (
+      <>
+        <path d="M3 16V8m14 8v-5a2 2 0 0 0-2-2H3m0 5h14M6 9V7h4a2 2 0 0 1 2 2" />
+        <path d="M3 16v1m14-1v1" />
+      </>
+    ),
+    boat: (
+      <>
+        <path d="M3 12h14l-2 3H5l-2-3ZM10 3v9M10 4l5 6h-5" />
+        <path d="M3 17c1 1 2 1 3 0 1 1 2 1 3 0 1 1 2 1 3 0 1 1 2 1 3 0" />
+      </>
+    ),
+    waves: (
+      <>
+        <path d="M3 8c2-2 4-2 6 0s4 2 6 0l2-1M3 12c2-2 4-2 6 0s4 2 6 0l2-1M3 16c2-2 4-2 6 0s4 2 6 0l2-1" />
+      </>
+    ),
+    sun: (
+      <>
+        <circle cx="10" cy="10" r="3" />
+        <path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4m8.6 8.6 1.4 1.4m0-11.4-1.4 1.4m-8.6 8.6-1.4 1.4" />
+      </>
+    ),
+    home: (
+      <>
+        <path d="m3 9 7-6 7 6M5 8v9h10V8M8 17v-5h4v5" />
+      </>
+    ),
     calendar: (
       <>
         <rect x="4" y="5" width="12" height="11" rx="1.5" />

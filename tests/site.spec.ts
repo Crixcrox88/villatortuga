@@ -238,7 +238,7 @@ for (const locale of ["en", "es"]) {
     );
     for (const link of await page.locator('a[target="_blank"]').all()) {
       expect(await link.getAttribute("href")).toMatch(
-        /^https:\/\/www.airbnb.com\/rooms\/1516054436387600999/,
+        /^https:\/\/www\.(?:airbnb\.com\/rooms\/1516054436387600999|instagram\.com\/)/,
       );
       const rel = (await link.getAttribute("rel"))?.split(/\s+/) ?? [];
       expect(rel).toEqual(expect.arrayContaining(["noopener", "noreferrer"]));

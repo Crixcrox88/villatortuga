@@ -100,7 +100,32 @@ export function Rooms({ locale }: { locale: Locale }) {
           <Eyebrow>{t.roomLabel}</Eyebrow>
           <h2>{t.roomTitle}</h2>
         </div>
-        <p>{t.roomIntro}</p>
+        <ul className="room-features">
+          <li>
+            <Icon name="bed" />
+            <span>
+              {locale === "es"
+                ? "2 camas king · 3 camas queen · Hasta 10 huéspedes"
+                : "2 king beds · 3 queen beds · Up to 10 guests"}
+            </span>
+          </li>
+          <li>
+            <Icon name="air" />
+            <span>
+              {locale === "es"
+                ? "Aire acondicionado en cada habitación"
+                : "Air conditioning in every bedroom"}
+            </span>
+          </li>
+          <li>
+            <Icon name="tv" />
+            <span>
+              {locale === "es"
+                ? "Smart TV en cada habitación"
+                : "Smart TV in every bedroom"}
+            </span>
+          </li>
+        </ul>
       </div>
       <div className="room-grid">
         {t.rooms.map(([name, detail, text], i) => (
@@ -142,7 +167,12 @@ export function GallerySection({ locale }: { locale: Locale }) {
           <Eyebrow>{t.galleryLabel}</Eyebrow>
           <h2>{t.galleryTitle}</h2>
         </div>
-        <p>{t.galleryText}</p>
+        <div className="section-note">
+          <span className="section-note-icon">
+            <Icon name="camera" />
+          </span>
+          <p>{t.galleryText}</p>
+        </div>
       </div>
       <Gallery locale={locale} />
     </section>
@@ -237,7 +267,39 @@ export function Location({ locale }: { locale: Locale }) {
       </div>
       <div className="extras">
         <h3>{t.extrasTitle}</h3>
-        <p>{t.extrasText}</p>
+        <div className="extras-content">
+          <p>
+            {locale === "es"
+              ? "Nuestro equipo de concierge puede ayudarle a organizar experiencias y servicios para su estadía."
+              : "Our concierge team can help arrange experiences and services for your stay."}
+          </p>
+          <ul className="extras-list">
+            {(locale === "es"
+              ? [
+                  ["boat", "Paseos en bote y charters de pesca"],
+                  ["waves", "Snorkeling guiado y buceo introductorio"],
+                  ["sun", "Masajes en la villa y yoga privado"],
+                  ["home", "Comestibles, limpieza y acceso opcional al muelle"],
+                ]
+              : [
+                  ["boat", "Private boat trips and fishing charters"],
+                  ["waves", "Guided snorkeling and introductory scuba"],
+                  ["sun", "In-villa massages and private yoga"],
+                  ["home", "Groceries, housekeeping and optional dock access"],
+                ]
+            ).map(([icon, label]) => (
+              <li key={icon}>
+                <Icon name={icon as "boat" | "waves" | "sun" | "home"} />
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="extras-note">
+            {locale === "es"
+              ? "Requieren aviso previo, están sujetos a disponibilidad y tienen cargos adicionales."
+              : "Advance notice is required. Services are subject to availability and additional fees."}
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -341,7 +403,6 @@ export function Stay({ locale }: { locale: Locale }) {
             </div>
           ))}
         </dl>
-        <p className="host-source">{t.hostSource}</p>
         <p>{t.hostText}</p>
         <External locale={locale}>{t.hostAction}</External>
       </div>
