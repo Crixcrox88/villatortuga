@@ -1,3 +1,4 @@
+import { Contact } from "./contact";
 import { Navigation } from "./navigation";
 import {
   Hero,
@@ -29,6 +30,7 @@ export function Home({ locale }: { locale: Locale }) {
         <Location locale={locale} />
         <Reviews locale={locale} />
         <Stay locale={locale} />
+        <Contact locale={locale} />
         <Footer locale={locale} />
       </main>
       <script

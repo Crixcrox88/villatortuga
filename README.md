@@ -32,7 +32,7 @@ npm test
 
 ## Deployment
 
-This is a standard Next.js App Router application and can be deployed to Vercel or Netlify. Configure `SITE_URL` to the approved `https` production origin and set `SITE_INDEXABLE=true` only when every launch item below is complete. No server action, payment flow, availability calendar, form, analytics provider, or direct-contact channel is included.
+This is a standard Next.js App Router application and can be deployed to Vercel or Netlify. Configure `SITE_URL` to the approved `https` production origin and set `SITE_INDEXABLE=true` only when every launch item below is complete. No server action, payment flow, availability calendar, or analytics provider is included. Contact uses FormSubmit and a direct email link.
 
 ## Launch checklist
 
@@ -52,3 +52,10 @@ This is a standard Next.js App Router application and can be deployed to Vercel 
 The local and preview environment intentionally returns `noindex, nofollow`, making its Lighthouse SEO score lower than an approved indexed production release.
 
 The September 17 editorial refinement and its production validation are documented in [docs/validation/refinement.md](docs/validation/refinement.md).
+
+
+## Contact form
+
+The bilingual contact section posts to `https://formsubmit.co/villatortugapr@gmail.com`. FormSubmit handles delivery, CAPTCHA and confirmation; the visitor leaves the site to finish submission. Native required/email validation and a honeypot are included. No Gmail password or API secret is stored in the application.
+
+Before launch, submit a real inquiry on the deployed domain, open the activation email in villatortugapr@gmail.com (check spam), and activate the form. Then submit a second inquiry and verify receipt and Reply-To. Delivery is not verified until this mailbox check is complete. No test email was sent during implementation. The visible mailto link remains available as an alternative. FormSubmit processes visitor name, email and message, as disclosed next to the submit button.

@@ -391,6 +391,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="footer-links">
           <a href="#gallery">{t.nav[2]}</a>
           <a href="#stay">{t.nav[4]}</a>
+          <a href="#contact">{locale === "es" ? "Contacto" : "Contact"}</a>
           <External locale={locale}>Airbnb</External>
           <a
             href={locale === "en" ? "/es" : "/"}
