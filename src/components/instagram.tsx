@@ -1,3 +1,4 @@
+import { Icon, Photo } from "./primitives";
 import { type Locale } from "@/content/site";
 
 const posts = [
@@ -8,6 +9,7 @@ const posts = [
   { path: "p/DRZ3GWJEets", reel: false },
   { path: "p/DQrUv1XkR5b", reel: false },
   { path: "p/DQWsF9pkV32", reel: false },
+  { path: "p/DO_JAVDET-r", reel: false },
 ];
 
 export function Instagram({ locale }: { locale: Locale }) {
@@ -38,7 +40,7 @@ export function Instagram({ locale }: { locale: Locale }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          @villatortuga_culebra <span aria-hidden="true">↗</span>
+          @villatortuga_culebra <Icon name="instagram" />
           <span className="sr-only">
             {" "}
             {es ? "(abre en otra pestaña)" : "(opens in a new tab)"}
@@ -48,7 +50,7 @@ export function Instagram({ locale }: { locale: Locale }) {
       <div className="instagram-grid">
         {posts.map((post, index) => (
           <a
-            className={`instagram-post${post.reel ? " instagram-reel" : ""}`}
+            className={`instagram-post${post.reel ? " instagram-reel" : ""}${post.path === "p/DO_JAVDET-r" ? " instagram-landscape" : ""}`}
             key={post.path}
             href={`https://www.instagram.com/${post.path}/`}
             target="_blank"
@@ -59,14 +61,19 @@ export function Instagram({ locale }: { locale: Locale }) {
                 : `${post.reel ? "Watch featured reel" : `View post ${index + 1}`} on Instagram (opens in a new tab)`
             }
           >
-            <div className="instagram-frame" aria-hidden="true">
-              <iframe
-                src={`https://www.instagram.com/${post.path}/embed/`}
-                title=""
-                tabIndex={-1}
-                loading="lazy"
-              />
-            </div>
+            {post.path === "p/DO_JAVDET-r" ? (
+              <Photo id={78} locale={locale} />
+            ) : (
+              <div className="instagram-frame" aria-hidden="true">
+                <iframe
+                  src={`https://www.instagram.com/${post.path}/embed/`}
+                  title=""
+                  tabIndex={-1}
+                  loading="lazy"
+                  scrolling="no"
+                />
+              </div>
+            )}
           </a>
         ))}
       </div>

@@ -1,3 +1,4 @@
+import { Icon } from "./primitives";
 import { type Locale } from "@/content/site";
 
 export function Contact({ locale }: { locale: Locale }) {
@@ -23,7 +24,7 @@ export function Contact({ locale }: { locale: Locale }) {
             : "Have a question about the villa? Tell us what you have in mind and we’ll reply by email."}
         </p>
         <a className="contact-email" href="mailto:villatortugapr@gmail.com">
-          villatortugapr@gmail.com ↗
+          villatortugapr@gmail.com <Icon name="mail" />
         </a>
         <p className="contact-note">
           {es
@@ -87,7 +88,7 @@ export function Contact({ locale }: { locale: Locale }) {
         </p>
         <button className="button" type="submit">
           {es ? "Enviar consulta" : "Send inquiry"}{" "}
-          <span aria-hidden="true">↗</span>
+          <Icon name="arrow-up-right" />
         </button>
       </form>
     </section>

@@ -1,1 +1,16 @@
-export default function NotFound(){return <main className="not-found"><p className="eyebrow">VILLA TORTUGA · 404</p><h1>This page has drifted away.</h1><p>Esta página se fue con la marea.</p><a className="button" href="/">Return to the villa →</a><a className="text-link" href="/es">Volver a la villa →</a></main>}
+import { Icon } from "@/components/primitives";
+export default function NotFound() {
+  return (
+    <main className="not-found">
+      <p className="eyebrow">VILLA TORTUGA · 404</p>
+      <h1>This page has drifted away.</h1>
+      <p>Esta página se fue con la marea.</p>
+      <a className="button" href="/">
+        Return to the villa <Icon name="arrow-right" />
+      </a>
+      <a className="text-link" href="/es">
+        Volver a la villa <Icon name="arrow-right" />
+      </a>
+    </main>
+  );
+}
