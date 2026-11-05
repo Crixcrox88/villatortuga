@@ -5,6 +5,11 @@ export function Icon({
   name,
 }: {
   name:
+    | "instagram"
+    | "mail"
+    | "arrow-up-right"
+    | "arrow-left"
+    | "arrow-right"
     | "air"
     | "tv"
     | "bed"
@@ -31,6 +36,11 @@ export function Icon({
     | "rules";
 }) {
   const paths = {
+    instagram: <><rect x="3" y="3" width="14" height="14" rx="4" /><circle cx="10" cy="10" r="3.2" /><circle cx="14.2" cy="5.8" r=".8" fill="currentColor" stroke="none" /></>,
+    mail: <><rect x="2.5" y="4.5" width="15" height="11" rx="1.5" /><path d="m3 6 7 5 7-5" /></>,
+    "arrow-up-right": <path d="M5 15 15 5M6 5h9v9" />,
+    "arrow-left": <path d="M17 10H4m0 0 6-6m-6 6 6 6" />,
+    "arrow-right": <path d="M3 10h13m0 0-6-6m6 6-6 6" />,
     air: (
       <>
         <rect x="2.5" y="4" width="15" height="7" rx="1" />

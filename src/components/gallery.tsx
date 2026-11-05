@@ -64,11 +64,11 @@ export function Gallery({ locale }: { locale: Locale }) {
     {limit < filtered.length && <button className="button gallery-more" onClick={() => setLimit(limit + 12)}><span className="button-label">{t.more}</span><Icon name="plus" /></button>}
     <dialog className="lightbox" ref={dialog} aria-label={t.galleryTitle} onCancel={(event) => { event.preventDefault(); close(); }} onClick={(event) => { if (event.target === event.currentTarget) close(); }} onKeyDown={(event) => { if (event.key === 'ArrowRight') { event.preventDefault(); move(1); } if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); } }}>
       {selected && <>
-        <div className="lightbox-top"><span>{categories[selected.category][locale === 'en' ? 0 : 1]}</span><button onClick={close} aria-label={t.galleryClose}>{t.close} ×</button></div>
+        <div className="lightbox-top"><span>{categories[selected.category][locale === 'en' ? 0 : 1]}</span><button onClick={close} aria-label={t.galleryClose}>{t.close} <Icon name="close" /></button></div>
         <div className="lightbox-image" onTouchStart={(event) => { touch.current = event.changedTouches[0].clientX; }} onTouchEnd={(event) => { if (touch.current !== null) { const delta = touch.current - event.changedTouches[0].clientX; if (Math.abs(delta) > 45) move(delta > 0 ? 1 : -1); touch.current = null; } }}>
           {failed ? <p role="status">{t.imageError}</p> : <Image key={selected.id} src={selected.src} alt={selected.alt[locale]} fill sizes="95vw" onError={() => setFailed(true)} />}
         </div>
-        <div className="lightbox-bottom"><button onClick={() => move(-1)} aria-label={t.previous}>←</button><p aria-live="polite">{t.photo} {(active ?? 0) + 1} {t.of} {filtered.length}<span>{selected.alt[locale]}</span></p><button onClick={() => move(1)} aria-label={t.next}>→</button></div>
+        <div className="lightbox-bottom"><button onClick={() => move(-1)} aria-label={t.previous}><Icon name="arrow-left" /></button><p aria-live="polite">{t.photo} {(active ?? 0) + 1} {t.of} {filtered.length}<span>{selected.alt[locale]}</span></p><button onClick={() => move(1)} aria-label={t.next}><Icon name="arrow-right" /></button></div>
       </>}
     </dialog>
   </>;
